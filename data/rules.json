@@ -98,6 +98,11 @@
       "description": "Derivative works must be distributed under the same or a compatible license."
     },
     {
+      "name": "share-alike--restricted",
+      "label": "Share-alike (restricted)",
+      "description": "Only the modified portion of the original dataset (A') must be republished under the same license, while newly added data (B) may remain under any license. This form of share-alike applies only to derivatives of the original data, not to the entire combined dataset."
+    },
+    {
       "name": "non-endorsement",
       "label": "Non-endorsement",
       "description": "The license prohibits implying endorsement by the original authors."
@@ -106,6 +111,11 @@
       "name": "license-linking",
       "label": "License linking",
       "description": "The license must be referenced or linked clearly in any reuse."
+    },
+    {
+      "name": "public-policy-alignment",
+      "label": "Alignment with public mobility strategy",
+      "description": "Reuse must comply with the local public authority’s mobility strategy and must not undermine public-interest mobility objectives (for example, safety, congestion, or environmental goals)."
     }
   ],
   "limitations": [
@@ -123,6 +133,11 @@
       "name": "warranty",
       "label": "No warranty",
       "description": "The license explicitly states that no warranty is provided."
+    },
+    {
+      "name": "license-incompatibility",
+      "label": "License incompatibility restriction",
+      "description": "This license forbids incorporating data originally distributed under incompatible licenses."
     },
     {
       "name": "no-personal-data-guarantee",
