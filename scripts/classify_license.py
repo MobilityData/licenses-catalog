@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Classify licenses (SPDX and non-SPDX) using an LLM and your system/user prompts.
+Classify licenses (SPDX and non-SPDX) using an LLM.
 
 Features:
 - dry-run: print classification, do not write files
@@ -13,7 +13,11 @@ Features:
   * non-SPDX: standalone JSON file with those three arrays
 
 Environment:
-- Expects OPENAI_API_KEY (or equivalent) in call_llm() if using OpenAI.
+- Prefers OPENAI_API_KEY from the environment.
+- If OPENAI_API_KEY is not set, attempts to read it from a dcredentials file:
+    * DCREDENTIALS_FILE env var path, or
+    * ~/.dcredentials (first non-empty, non-comment line, or OPENAI_API_KEY=...).
+ - DISABLE_LLM=1 to skip LLM calls and return an empty classification (useful for testing).
 """
 
 import argparse
@@ -65,6 +69,45 @@ TAG_NAMES = load_tags()
 BASE_DIR = Path(__file__).resolve().parent
 DEFAULT_SYSTEM_PROMPT_PATH = BASE_DIR.parent / "docs" / "classification" / "SYSTEM_PROMPT.md"
 DEFAULT_USER_PROMPT_PATH = BASE_DIR.parent / "docs" / "classification" / "USER_PROMPT.md"
+
+
+def load_api_key_from_dcredentials() -> Optional[str]:
+    """Optionally load OPENAI_API_KEY from a local dcredentials file.
+
+    Resolution order:
+    1. DCREDENTIALS_FILE environment variable (if set)
+    2. ~/.dcredentials
+
+    File format:
+    - First non-empty, non-comment line is used, OR
+    - A line of the form OPENAI_API_KEY=sk-... (KEY=VALUE), in which case
+      the value part is used.
+    """
+    path_env = os.environ.get("DCREDENTIALS_FILE")
+    candidates: list[Path] = []
+    if path_env:
+        candidates.append(Path(path_env).expanduser())
+    candidates.append(Path.home() / ".dcredentials")
+
+    for path in candidates:
+        if not path.exists():
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except OSError:
+            continue
+
+        for raw_line in text.splitlines():
+            line = raw_line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if "=" in line:
+                key, value = line.split("=", 1)
+                if key.strip() == "OPENAI_API_KEY" and value.strip():
+                    return value.strip()
+            else:
+                return line
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -329,12 +372,22 @@ def call_llm(system_prompt: str, user_prompt: str, license_text: str, model: str
         },
     }
 
-    api_key = os.environ.get("OPENAI_API_KEY")
+    # Try environment first, then dcredentials file.
+    api_key = os.environ.get("OPENAI_API_KEY") or load_api_key_from_dcredentials()
     provider_disabled = os.environ.get("DISABLE_LLM") == "1"
 
-    if not api_key or provider_disabled:
-        print("LLM not configured or disabled; returning empty classification.", file=sys.stderr)
+    if provider_disabled:
+        print("LLM disabled via DISABLE_LLM=1; returning empty classification.", file=sys.stderr)
         return empty
+
+    if not api_key:
+        raise RuntimeError(
+            "No OpenAI API key configured. Set OPENAI_API_KEY or provide a dcredentials file "
+            "(DCREDENTIALS_FILE or ~/.dcredentials, or use --credentials-file)."
+        )
+
+    # Ensure OpenAI clients can see the key via env
+    os.environ.setdefault("OPENAI_API_KEY", api_key)
 
     try:
         import openai  # type: ignore
@@ -492,6 +545,22 @@ def parse_args() -> argparse.Namespace:
         "Non-SPDX mode: if omitted, defaults to <license_id>.classification.json."))
     parser.add_argument("--dry-run", action="store_true", help="Do not write any files; print classification JSON to stdout only.")
     parser.add_argument("--model", type=str, default="gpt-4.1-mini", help="LLM model name for the provider (default: gpt-4.1-mini).")
+    parser.add_argument(
+        "--disable-llm",
+        action="store_true",
+        help=(
+            "Disable LLM calls and return an empty classification. "
+            "Equivalent to setting DISABLE_LLM=1 (useful for testing)."
+        ),
+    )
+    parser.add_argument(
+        "--credentials-file",
+        type=Path,
+        help=(
+            "Path to a dcredentials-style file containing OPENAI_API_KEY. "
+            "If provided, this overrides DCREDENTIALS_FILE and the default ~/.dcredentials lookup."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -524,6 +593,13 @@ def load_external_existing_classification(path: Optional[Path]) -> Optional[Dict
 
 def main() -> None:
     args = parse_args()
+    # CLI flag to disable LLM calls takes precedence and maps to DISABLE_LLM.
+    if getattr(args, "disable_llm", False):
+        os.environ["DISABLE_LLM"] = "1"
+    # If provided, this overrides the default dcredentials resolution in
+    # load_api_key_from_dcredentials().
+    if getattr(args, "credentials_file", None) is not None:
+        os.environ["DCREDENTIALS_FILE"] = str(args.credentials_file)
     license_id = derive_default_license_id(args)
     is_spdx_mode = args.spdx_json is not None
     if is_spdx_mode:
@@ -560,7 +636,11 @@ def main() -> None:
         existing_classification=existing_classification,
         license_text=license_text,
     )
-    classification = call_llm(system_prompt, user_prompt, license_text=license_text, model=args.model)
+    try:
+        classification = call_llm(system_prompt, user_prompt, license_text=license_text, model=args.model)
+    except RuntimeError as exc:
+        print(f"Error: {exc}", file=sys.stderr)
+        raise SystemExit(1)
     classification = normalize_classification(classification)
     output_path = derive_default_output_path(args, license_id, is_spdx_mode)
     if output_path:

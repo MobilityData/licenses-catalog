@@ -71,6 +71,15 @@ set -euo pipefail
 #       LLM model name for the provider
 #       Default: gpt-4.1-mini
 #
+#   --disable-llm
+#       Disable LLM calls and return an empty classification.
+#       Shorthand for setting DISABLE_LLM=1 (useful for testing).
+#
+#   --credentials-file PATH
+#       Path to a "dcredentials"-style file containing OPENAI_API_KEY.
+#       When provided, this overrides DCREDENTIALS_FILE and the default
+#       ~/.dcredentials lookup used by classify_license.py.
+#
 # Examples:
 #   # Classify a single license URL
 #   ./classify_license.sh --non-spdx-url "https://creativecommons.org/licenses/by/4.0/" --dry-run
@@ -91,15 +100,27 @@ set -euo pipefail
 #   ./classify_license.sh --non-spdx-url "https://example.com/license" --dry-run
 #
 # Environment Variables:
-#   OPENAI_API_KEY  - REQUIRED. API key for OpenAI LLM calls
-#                     Set before running: export OPENAI_API_KEY="sk-..."
+#   OPENAI_API_KEY  - API key for OpenAI LLM calls. Recommended to set:
+#                     export OPENAI_API_KEY="sk-..."
+#                     If not set, the Python script will look for a
+#                     dcredentials file (see below).
+#   DCREDENTIALS_FILE - Optional path to a "dcredentials" file containing
+#                     OPENAI_API_KEY. If not set, ~/.dcredentials is used.
+#                     File format:
+#                       - First non-empty, non-comment line is treated as
+#                         the API key, OR
+#                       - A line of the form:
+#                           OPENAI_API_KEY=sk-...
+#   DISABLE_LLM     - Set to 1 to skip LLM calls and return an empty
+#                     classification. Equivalent to passing --disable-llm.
 #   VENV_DIR        - Override default virtual environment location
 #   SCRIPT_DIR      - Auto-detected directory of this script
 #
 # Requirements:
 #   - Python 3.8+
 #   - requirements.txt in same directory as script
-#   - OPENAI_API_KEY environment variable (required for LLM classification)
+#   - Either OPENAI_API_KEY set in the environment OR a valid dcredentials
+#     file as described above (for LLM classification)
 #
 # Exit Codes:
 #   0 - Success
@@ -130,8 +151,14 @@ source "${VENV_DIR}/bin/activate"
 # 3. Install requirements if requirements.txt exists
 if [[ -f "${SCRIPT_DIR}/requirements.txt" ]]; then
   echo "Installing/updating Python dependencies..."
-  pip install --upgrade pip >/dev/null
-  pip install -r "${SCRIPT_DIR}/requirements.txt"
+  if ! pip install --upgrade pip >/dev/null; then
+    echo "Error: failed to upgrade pip in ${VENV_DIR}" >&2
+    exit 1
+  fi
+  if ! pip install -r "${SCRIPT_DIR}/requirements.txt" >/dev/null; then
+    echo "Error: failed to install Python dependencies from requirements.txt" >&2
+    exit 1
+  fi
 fi
 
 # 4. Call the Python classifier with all passed arguments
