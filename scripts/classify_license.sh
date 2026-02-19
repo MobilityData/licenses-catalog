@@ -161,5 +161,11 @@ if [[ -f "${SCRIPT_DIR}/requirements.txt" ]]; then
   fi
 fi
 
-# 4. Call the Python classifier with all passed arguments
-python "${SCRIPT_DIR}/classify_license.py" "$@"
+# 4. Call the Python classifier module in src/ with all passed arguments
+
+# Ensure the src/ directory (which contains the "licensing" package) is on PYTHONPATH
+REPO_ROOT="${SCRIPT_DIR}/.."
+SRC_DIR="${REPO_ROOT}/src"
+export PYTHONPATH="${SRC_DIR}${PYTHONPATH:+:${PYTHONPATH}}"
+
+python -m licensing.classify.classify_license "$@"
