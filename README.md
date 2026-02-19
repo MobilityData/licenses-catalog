@@ -1,4 +1,4 @@
-# Licenses as a Service
+# Licenses Catalog
 
 A developer-friendly tool to explore, compare, and integrate software and data licenses.
 Inspired by [choosealicense.com](https://github.com/github/choosealicense.com), with added metadata and API access for automation.
@@ -13,8 +13,8 @@ The [choosealicense.com](https://github.com/github/choosealicense.com) is a grea
 
 This repository is intended to provide:
 - A **more complete and neutral catalog** of software and data licenses
-- **Machine-readable metadata** for reuse in other tools or websites
-- An **API-ready format** for program-to-program integration
+- **Machine-readable** metadata and formats for seamless integration and reuse in tools, websites, and automated systems
+- A **human-oriented** structure that presents license details in a clear and accessible way for both people and tools.
 
 ## License Rules and Metadata
 
@@ -31,43 +31,6 @@ The full set of rules is defined in [`rules.json`](data/rules.json). See the com
 
 - Code licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0).
 - Content under the [CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
-
-### License Rules Used in This Project
-
-#### Apache License 2.0
-
-##### Permissions:
-- `commercial-use`
-- `modifications`
-- `distribution`
-- `patent-use`
-- `private-use`
-
-##### Conditions:
-- `include-copyright`
-- `document-changes`
-
-##### Limitations:
-- `trademark-use`
-- `liability`
-- `warranty`
-
-#### CC0 1.0 Universal
-
-##### Permissions:
-- `commercial-use`
-- `modifications`
-- `distribution`
-- `private-use`
-
-##### Conditions:
-- *(None — this license imposes no conditions.)*
-
-##### Limitations:
-- `liability`
-- `trademark-use`
-- `patent-use`
-- `warranty`
 
 ## Contributing
 

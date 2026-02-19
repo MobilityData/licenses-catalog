@@ -1,4 +1,4 @@
-"""Licenses as a Service (licenses_aas)
+"""Licenses Catalog (licenses_catalog)
 
 Core library for inspecting, merging and classifying licenses.
 
