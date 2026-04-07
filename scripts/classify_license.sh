@@ -23,104 +23,86 @@ set -euo pipefail
 #   - Safe activation and argument forwarding
 #   - Idempotent: safe to run multiple times
 #
-# Input Source Options (one required):
+# Input Source (one required):
+#   PATH  (positional)
+#       Path to a merged SPDX JSON file (with top-level 'spdx' block) or a
+#       plain license text file.
+#
 #   --spdx-json PATH
-#       Path to license JSON file in the repo (with top-level 'spdx' block)
-#       Used for SPDX licenses with structured metadata
-#
-#   --non-spdx-file PATH
-#       Path to text/markdown file containing the full license text
-#       For local non-SPDX licenses
-#
-#   --non-spdx-url URL
-#       URL to download the license text from
-#       For remote non-SPDX licenses (with caching support)
+#       (legacy) Alias for the positional PATH argument.
 #
 # Optional Arguments:
-#   --license-id ID
-#       Logical license identifier (if omitted, derived from filename or URL)
+#   --spdx-id ID
+#       Override the SPDX ID for the license (useful for plain text inputs).
 #
-#   --existing-classification PATH
-#       JSON file with existing classification to use as a hint
-#       Overrides any classification in --spdx-json file
-#
-#   --system-prompt-file PATH
-#       Path to system prompt markdown file
-#       Default: docs/classification/SYSTEM_PROMPT.md
-#
-#   --user-prompt-file PATH
-#       Path to user prompt markdown file
-#       Default: docs/classification/USER_PROMPT.md
-#
-#   --cache-dir PATH
-#       Cache directory for downloaded license texts (non-SPDX URL mode)
-#       Default: .cache/licenses
-#
-#   --force-download
-#       Force re-download of license text even if cached
-#
-#   --output PATH
-#       Output JSON file for classification results
-#       - SPDX mode: defaults to updating --spdx-json file in-place
-#       - Non-SPDX mode: defaults to <license_id>.classification.json
+#   --output [PATH]
+#       Write classification results to a file.
+#       - With PATH: writes to the specified file.
+#       - Without PATH: merges classification into the input SPDX JSON file
+#         in-place. Requires the input to be a SPDX JSON file.
+#       - Omitted entirely: prints JSON to stdout.
 #
 #   --dry-run
-#       Print classification JSON to stdout without writing files
+#       Print classification JSON to stdout without writing any files.
+#       Takes precedence over --output.
+#
+#   --system-prompt PATH
+#       Path to the system prompt markdown file.
+#       Default: docs/classification/SYSTEM_PROMPT.md
+#
+#   --user-prompt PATH
+#       Path to the user prompt markdown file.
+#       Default: docs/classification/USER_PROMPT.md
 #
 #   --model MODEL_NAME
-#       LLM model name for the provider
-#       Default: gpt-4.1-mini
-#
-#   --disable-llm
-#       Disable LLM calls and return an empty classification.
-#       Shorthand for setting DISABLE_LLM=1 (useful for testing).
+#       LLM model name to use.
+#       Default: gpt-4.1
 #
 #   --credentials-file PATH
 #       Path to a "dcredentials"-style file containing OPENAI_API_KEY.
-#       When provided, this overrides DCREDENTIALS_FILE and the default
-#       ~/.dcredentials lookup used by classify_license.py.
+#       Overrides DCREDENTIALS_FILE env var and the default ~/.dcredentials
+#       lookup.
+#
+#   --disable-llm
+#       Disable LLM calls and return an empty classification.
+#       Equivalent to setting DISABLE_LLM=1 (useful for testing).
 #
 # Examples:
-#   # Classify a single license URL
-#   ./classify_license.sh --non-spdx-url "https://creativecommons.org/licenses/by/4.0/" --dry-run
+#   # Classify a SPDX JSON file, print to stdout
+#   ./classify_license.sh ./data/licenses/MIT.json
 #
-#   # Classify from SPDX JSON file (updates in-place)
-#   ./classify_license.sh --spdx-json data/licenses/MIT.json
+#   # Classify and update the input file in-place
+#   ./classify_license.sh --spdx-json ./data/licenses/MIT.json --output
 #
-#   # Classify from SPDX JSON with custom output
-#   ./classify_license.sh --spdx-json licenses.json --output results.json
+#   # Classify and write results to a separate file
+#   ./classify_license.sh ./data/licenses/MIT.json --output results.json
 #
-#   # Classify from CSV file containing non-SPDX licenses
-#   ./classify_license.sh --non-spdx-file licenses.csv --output results.json
+#   # Classify a plain license text file with a custom SPDX ID
+#   ./classify_license.sh ./my-license.txt --spdx-id MIT
 #
-#   # Force re-download with custom model
-#   ./classify_license.sh --non-spdx-url "https://example.com/license" --force-download --model gpt-4o
+#   # Preview classification without writing anything
+#   ./classify_license.sh ./data/licenses/MIT.json --dry-run
 #
-#   # Dry run to preview classification
-#   ./classify_license.sh --non-spdx-url "https://example.com/license" --dry-run
+#   # Use a custom model and credentials file
+#   ./classify_license.sh ./data/licenses/MIT.json --model gpt-4o --credentials-file ~/creds
 #
 # Environment Variables:
-#   OPENAI_API_KEY  - API key for OpenAI LLM calls. Recommended to set:
-#                     export OPENAI_API_KEY="sk-..."
-#                     If not set, the Python script will look for a
-#                     dcredentials file (see below).
-#   DCREDENTIALS_FILE - Optional path to a "dcredentials" file containing
-#                     OPENAI_API_KEY. If not set, ~/.dcredentials is used.
-#                     File format:
-#                       - First non-empty, non-comment line is treated as
-#                         the API key, OR
-#                       - A line of the form:
-#                           OPENAI_API_KEY=sk-...
-#   DISABLE_LLM     - Set to 1 to skip LLM calls and return an empty
-#                     classification. Equivalent to passing --disable-llm.
-#   VENV_DIR        - Override default virtual environment location
-#   SCRIPT_DIR      - Auto-detected directory of this script
+#   OPENAI_API_KEY    - API key for OpenAI LLM calls.
+#                       If not set, the script falls back to a dcredentials
+#                       file (see --credentials-file above).
+#   DCREDENTIALS_FILE - Optional path to a dcredentials file containing
+#                       OPENAI_API_KEY. Defaults to ~/.dcredentials.
+#                       File format:
+#                         - First non-empty, non-comment line is the API key,
+#                           OR a line of the form: OPENAI_API_KEY=sk-...
+#   DISABLE_LLM       - Set to 1 to skip LLM calls and return empty
+#                       classification. Equivalent to --disable-llm.
+#   VENV_DIR          - Override default virtual environment location.
 #
 # Requirements:
-#   - Python 3.8+
-#   - requirements.txt in same directory as script
-#   - Either OPENAI_API_KEY set in the environment OR a valid dcredentials
-#     file as described above (for LLM classification)
+#   - Python 3.11+
+#   - requirements.txt in same directory as this script
+#   - OPENAI_API_KEY or a valid dcredentials file (for LLM classification)
 #
 # Exit Codes:
 #   0 - Success
@@ -128,9 +110,8 @@ set -euo pipefail
 #   2 - Python execution error
 #
 # Notes:
-#   - Virtual environment is created only once and reused
-#   - Dependencies are installed/upgraded on each run
-#   - Downloaded license texts are cached in .cache/licenses/
+#   - Virtual environment is created only once and reused.
+#   - Dependencies are installed/upgraded on each run.
 #   - Script must be executable: chmod +x classify_license.sh
 #===============================================================================
 

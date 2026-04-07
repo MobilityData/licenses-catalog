@@ -45,7 +45,7 @@ def load_tags(path: Path = TAGS_PATH) -> list:
 			for tag_key in entries.keys():
 				if tag_key == "_group":
 					continue
-				flat.append(tag_key)
+				flat.append(f"{category}:{tag_key}")
 	return sorted(set(flat))
 
 
@@ -362,13 +362,25 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 		help="Path to merged SPDX JSON file or license text file.",
 	)
 	parser.add_argument("--spdx-json", help="(legacy) Path to merged SPDX JSON file; alias for license_path.")
-	parser.add_argument("--dry-run", action="store_true", help="(legacy) Do not write files; output is printed to stdout (default).")
+	parser.add_argument("--dry-run", action="store_true", help="(legacy) Print classification JSON to stdout without writing files.")
 	parser.add_argument("--spdx-id", help="Optional SPDX ID for the license.")
 	parser.add_argument("--credentials-file", help="Path to a dcredentials file with OPENAI_API_KEY.")
 	parser.add_argument("--disable-llm", action="store_true", help="Disable the LLM and return empty classification.")
 	parser.add_argument("--system-prompt", default=str(DEFAULT_SYSTEM_PROMPT_PATH), help="Path to system prompt file.")
 	parser.add_argument("--user-prompt", default=str(DEFAULT_USER_PROMPT_PATH), help="Path to user prompt template.")
 	parser.add_argument("--model", default="gpt-4.1", help="LLM model name to use (default: gpt-4.1).")
+	parser.add_argument(
+		"--output",
+		nargs="?",
+		const="",
+		default=None,
+		metavar="PATH",
+		help=(
+			"Write results to PATH. "
+			"If PATH is omitted, merges classification into the input SPDX JSON file in-place. "
+			"If not provided at all, prints to stdout."
+		),
+	)
 	return parser.parse_args(argv)
 
 
@@ -412,16 +424,40 @@ def main(argv: list[str] | None = None) -> None:
 		print(f"Error: {exc}", file=os.sys.stderr)
 		raise SystemExit(1)
 	normalized = normalize_classification(raw_obj)
-	output = {
-		"license_id": license_id,
-		"spdx_id": spdx_id,
+	classification = {
 		"permissions": normalized["permissions"],
 		"conditions": normalized["conditions"],
 		"limitations": normalized["limitations"],
 		"tags": normalized["tags"],
 		"reasons": raw_obj.get("reasons", {}),
 	}
-	print(json.dumps(output, indent=2, ensure_ascii=False))
+
+	output_arg = args.output  # None = stdout, "" = in-place, non-empty = file path
+
+	if output_arg is None or args.dry_run:
+		output = {
+			"license_id": license_id,
+			"spdx_id": spdx_id,
+			**classification,
+		}
+		print(json.dumps(output, indent=2, ensure_ascii=False))
+		return
+
+	if output_arg == "":
+		if raw_json is None:
+			raise SystemExit("Error: --output without a path requires a SPDX JSON input file")
+		output_path = path
+	else:
+		output_path = Path(output_arg)
+
+	if raw_json is not None:
+		raw_json.update({k: v for k, v in classification.items() if k != "reasons"})
+		data_to_write = raw_json
+	else:
+		data_to_write = {"license_id": license_id, "spdx_id": spdx_id, **classification}
+
+	output_path.write_text(json.dumps(data_to_write, indent=2, ensure_ascii=False), encoding="utf-8")
+	print(f"Classification written to {output_path}", file=os.sys.stderr)
 
 
 if __name__ == "__main__":
