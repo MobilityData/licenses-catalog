@@ -35,6 +35,9 @@ classifiers = [
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
+[project.optional-dependencies]
+dev = ["pytest"]
+
 [project.urls]
 Homepage = "https://github.com/MobilityData/licenses-catalog"
 Repository = "https://github.com/MobilityData/licenses-catalog"

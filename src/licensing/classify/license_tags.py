@@ -177,7 +177,13 @@ def build_tags(spdx_id: str, spdx_info: dict[str, Any]) -> list[str]:
 
 
 def apply_tags_to_file(path: Path, registry: TagRegistry) -> None:
-	"""Update a single merged license JSON file with tags in-place."""
+	"""Update a single merged license JSON file with tags in-place.
+
+	Heuristic tags are merged with any existing tags already present in the
+	file (e.g. tags set by the LLM classifier). Existing tags that are no
+	longer valid according to the registry are dropped. The result is always
+	a sorted, deduplicated list of valid tags regardless of call order.
+	"""
 	with path.open("r", encoding="utf-8") as f:
 		data = json.load(f)
 
@@ -189,10 +195,9 @@ def apply_tags_to_file(path: Path, registry: TagRegistry) -> None:
 	if not spdx_id:
 		return
 
-	raw_tags = build_tags(spdx_id, spdx_info)
-	valid_tags = [t for t in raw_tags if registry.is_valid(t)]
-
-	data["tags"] = valid_tags
+	heuristic_tags = [t for t in build_tags(spdx_id, spdx_info) if registry.is_valid(t)]
+	existing_tags = [t for t in data.get("tags", []) if registry.is_valid(t)]
+	data["tags"] = sorted(set(existing_tags) | set(heuristic_tags))
 
 	with path.open("w", encoding="utf-8") as f:
 		json.dump(data, f, indent=2, ensure_ascii=False)

@@ -8,11 +8,15 @@ This script merges license metadata from the [SPDX license-list-data](https://gi
 
 Each output file is named using the SPDX ID (e.g., `MIT.json`) and contains:
 
-- `spdx`: SPDX license metadata
-- `categorized`: `true` if the license was categorized by merging with an external source or manually available, otherwise `false`
-- `permissions`: list of granted permissions
-- `conditions`: list of conditions that must be met
-- `limitations`: list of limitations and restrictions
+| Field | Type | Description |
+|---|---|---|
+| `spdx` | object | Full SPDX license metadata block |
+| `categorized` | boolean | `true` if the license was categorized by merging with an external source, `false` otherwise |
+| `permissions` | array | List of granted permissions (e.g., `commercial-use`, `modifications`) |
+| `conditions` | array | List of conditions that must be met (e.g., `include-copyright`) |
+| `limitations` | array | List of limitations and restrictions (e.g., `no-liability`) |
+| `tags` | array | Descriptive tags in `group:key` format — set by the heuristic tagger and/or the LLM classifier (e.g., `license:open-source`, `family:MIT`, `domain:software`) |
+| `reasons` | object | LLM-provided reasoning for each assigned permission, condition, limitation, and tag. Only present after running the LLM classifier. |
 
 ### Usage
 
@@ -117,6 +121,7 @@ Each license JSON file is updated with a `tags` field, which contains a list of 
 - **Domain**: e.g., `domain:content`, `domain:data`, `domain:software`.
 - **Copyleft Strength**: e.g., `copyleft:none`, `copyleft:weak`, `copyleft:strong`.
 - **Family**: e.g., `family:CC` (Creative Commons), `family:GPL` (GNU General Public License).
+- **SPDX flags**: e.g., `spdx:osi-approved`, `spdx:fsf-free`, `spdx:deprecated`.
 - **Notes**: e.g., `notes:attribution-required`, `notes:share-alike`.
 
 ### Usage

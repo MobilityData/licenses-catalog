@@ -14,6 +14,8 @@ from typing import Any
 
 import requests  # type: ignore
 
+from licensing.classify.license_tags import TagRegistry, build_tags
+
 
 BASE_DIR = Path(__file__).resolve().parents[3]
 RULES_PATH = (BASE_DIR / "data" / "rules.json").resolve()
@@ -231,8 +233,17 @@ def _extract_json_obj(raw: str) -> dict[str, Any] | None:
 	import json as _json
 	raw = raw.strip()
 	if raw.startswith("```"):
+		# Split on fences and strip any language identifier (e.g. "json") from
+		# the first line of each fenced block before reassembling.
 		parts = raw.split("```")
-		raw = "\n".join([p for p in parts if not p.strip().startswith("json") and p.strip()])
+		cleaned = []
+		for p in parts:
+			lines = p.splitlines()
+			if lines and lines[0].strip().isalpha():
+				p = "\n".join(lines[1:])
+			if p.strip():
+				cleaned.append(p.strip())
+		raw = "\n".join(cleaned)
 	try:
 		return _json.loads(raw)
 	except Exception:
@@ -365,6 +376,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 	parser.add_argument("--dry-run", action="store_true", help="(legacy) Print classification JSON to stdout without writing files.")
 	parser.add_argument("--spdx-id", help="Optional SPDX ID for the license.")
 	parser.add_argument("--credentials-file", help="Path to a dcredentials file with OPENAI_API_KEY.")
+	parser.add_argument("--skip-tags", action="store_true", help="Skip heuristic tag inference; only LLM-assigned tags are included.")
 	parser.add_argument("--disable-llm", action="store_true", help="Disable the LLM and return empty classification.")
 	parser.add_argument("--system-prompt", default=str(DEFAULT_SYSTEM_PROMPT_PATH), help="Path to system prompt file.")
 	parser.add_argument("--user-prompt", default=str(DEFAULT_USER_PROMPT_PATH), help="Path to user prompt template.")
@@ -424,11 +436,22 @@ def main(argv: list[str] | None = None) -> None:
 		print(f"Error: {exc}", file=os.sys.stderr)
 		raise SystemExit(1)
 	normalized = normalize_classification(raw_obj)
+
+	# Merge LLM tags with heuristic tags for SPDX inputs so the result is
+	# the same regardless of whether classify_license or licenses_tags runs first.
+	llm_tags = normalized["tags"]
+	if raw_json is not None and spdx_id and not args.skip_tags:
+		registry = TagRegistry()
+		heuristic_tags = [t for t in build_tags(spdx_id, raw_json.get("spdx", {})) if registry.is_valid(t)]
+		merged_tags = sorted(set(llm_tags) | set(heuristic_tags))
+	else:
+		merged_tags = llm_tags
+
 	classification = {
 		"permissions": normalized["permissions"],
 		"conditions": normalized["conditions"],
 		"limitations": normalized["limitations"],
-		"tags": normalized["tags"],
+		"tags": merged_tags,
 		"reasons": raw_obj.get("reasons", {}),
 	}
 

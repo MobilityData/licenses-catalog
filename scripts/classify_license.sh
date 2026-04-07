@@ -63,6 +63,11 @@ set -euo pipefail
 #       Overrides DCREDENTIALS_FILE env var and the default ~/.dcredentials
 #       lookup.
 #
+#   --skip-tags
+#       Skip heuristic tag inference. Only tags returned by the LLM are
+#       included in the output. By default, heuristic tags are merged with
+#       LLM tags automatically.
+#
 #   --disable-llm
 #       Disable LLM calls and return an empty classification.
 #       Equivalent to setting DISABLE_LLM=1 (useful for testing).
