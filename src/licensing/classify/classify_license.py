@@ -10,7 +10,7 @@ import json
 import os
 import re
 from pathlib import Path
-from typing import Any, Dict, Optional, Tuple
+from typing import Any
 
 import requests  # type: ignore
 
@@ -20,7 +20,7 @@ RULES_PATH = (BASE_DIR / "data" / "rules.json").resolve()
 TAGS_PATH = (BASE_DIR / "data" / "tags.json").resolve()
 
 
-def load_rules(path: Path = RULES_PATH) -> Dict[str, list]:
+def load_rules(path: Path = RULES_PATH) -> dict[str, list]:
 	if not path.exists():
 		raise FileNotFoundError(f"Rules file not found: {path}")
 	data = json.loads(path.read_text(encoding="utf-8"))
@@ -56,7 +56,7 @@ DEFAULT_SYSTEM_PROMPT_PATH = BASE_DIR / "docs" / "classification" / "SYSTEM_PROM
 DEFAULT_USER_PROMPT_PATH = BASE_DIR / "docs" / "classification" / "USER_PROMPT.md"
 
 
-def load_api_key_from_dcredentials() -> Optional[str]:
+def load_api_key_from_dcredentials() -> str | None:
 	"""Optionally load OPENAI_API_KEY from a local dcredentials file."""
 
 	path_env = os.environ.get("DCREDENTIALS_FILE")
@@ -86,7 +86,7 @@ def load_api_key_from_dcredentials() -> Optional[str]:
 	return None
 
 
-def load_spdx_license(spdx_json_path: Path) -> Tuple[str, Dict[str, Any], Dict[str, Any], Dict[str, Any]]:
+def load_spdx_license(spdx_json_path: Path) -> tuple[str, dict[str, Any], dict[str, Any], dict[str, Any]]:
 	"""Load license text + metadata + existing classification from merged JSON."""
 	with spdx_json_path.open("r", encoding="utf-8") as f:
 		data = json.load(f)
@@ -137,7 +137,7 @@ def load_spdx_license(spdx_json_path: Path) -> Tuple[str, Dict[str, Any], Dict[s
 	return license_text, metadata, existing_classification, data
 
 
-def load_non_spdx_from_file(path: Path) -> Tuple[str, Dict[str, Any]]:
+def load_non_spdx_from_file(path: Path) -> tuple[str, dict[str, Any]]:
 	with path.open("r", encoding="utf-8") as f:
 		text = f.read()
 	metadata = {
@@ -152,7 +152,7 @@ def _url_to_cache_path(url: str, cache_dir: Path) -> Path:
 	return cache_dir / f"{h}.txt"
 
 
-def load_non_spdx_from_url(url: str, cache_dir: Path, force_download: bool = False) -> Tuple[str, Dict[str, Any]]:
+def load_non_spdx_from_url(url: str, cache_dir: Path, force_download: bool = False) -> tuple[str, dict[str, Any]]:
 	cache_dir.mkdir(parents=True, exist_ok=True)
 	cache_path = _url_to_cache_path(url, cache_dir)
 
@@ -175,7 +175,7 @@ def load_non_spdx_from_url(url: str, cache_dir: Path, force_download: bool = Fal
 _PLACEHOLDER_PATTERN = re.compile(r"\{([A-Za-z0-9_]+)}")
 
 
-def _sub_placeholders(text: str, mapping: Dict[str, Any]) -> str:
+def _sub_placeholders(text: str, mapping: dict[str, Any]) -> str:
 	def repl(match):
 		key = match.group(1)
 		if key in mapping:
@@ -185,7 +185,7 @@ def _sub_placeholders(text: str, mapping: Dict[str, Any]) -> str:
 	return _PLACEHOLDER_PATTERN.sub(repl, text)
 
 
-def _allowed_mapping() -> Dict[str, Any]:
+def _allowed_mapping() -> dict[str, Any]:
 	return {
 		"allowed_permissions": json.dumps(RULE_NAMES["permissions"], ensure_ascii=False),
 		"allowed_conditions": json.dumps(RULE_NAMES["conditions"], ensure_ascii=False),
@@ -194,7 +194,7 @@ def _allowed_mapping() -> Dict[str, Any]:
 	}
 
 
-def load_system_prompt(path: str | Path = DEFAULT_SYSTEM_PROMPT_PATH, mapping: Optional[Dict[str, Any]] = None) -> str:
+def load_system_prompt(path: str | Path = DEFAULT_SYSTEM_PROMPT_PATH, mapping: dict[str, Any] | None = None) -> str:
 	p = Path(path)
 	if not p.is_absolute():
 		p = (BASE_DIR / p).resolve()
@@ -208,14 +208,14 @@ def load_system_prompt(path: str | Path = DEFAULT_SYSTEM_PROMPT_PATH, mapping: O
 def build_user_prompt(
 	template_path: Path,
 	license_id: str,
-	spdx_id: Optional[str],
+	spdx_id: str | None,
 	source: str,
-	metadata: Dict[str, Any],
-	existing_classification: Optional[Dict[str, Any]],
+	metadata: dict[str, Any],
+	existing_classification: dict[str, Any] | None,
 	license_text: str,
 ) -> str:
 	template = template_path.read_text(encoding="utf-8")
-	mapping: Dict[str, Any] = {
+	mapping: dict[str, Any] = {
 		"LICENSE_ID": license_id,
 		"SPDX_ID_OR_EMPTY": spdx_id or "",
 		"SOURCE": source,
@@ -227,7 +227,7 @@ def build_user_prompt(
 	return _sub_placeholders(template, mapping)
 
 
-def _extract_json_obj(raw: str) -> Optional[Dict[str, Any]]:
+def _extract_json_obj(raw: str) -> dict[str, Any] | None:
 	import json as _json
 	raw = raw.strip()
 	if raw.startswith("```"):
@@ -260,7 +260,7 @@ def _extract_json_obj(raw: str) -> Optional[Dict[str, Any]]:
 	return None
 
 
-def call_llm(system_prompt: str, user_prompt: str, license_text: str, model: str = "gpt-4.1") -> Dict[str, Any]:
+def call_llm(system_prompt: str, user_prompt: str, license_text: str, model: str = "gpt-4.1") -> dict[str, Any]:
 	import sys
 	empty = {
 		"permissions": [],
@@ -333,7 +333,7 @@ def call_llm(system_prompt: str, user_prompt: str, license_text: str, model: str
 		return empty
 
 
-def normalize_classification(obj: Dict[str, Any]) -> Dict[str, Any]:
+def normalize_classification(obj: dict[str, Any]) -> dict[str, Any]:
 	def ensure_str_list(value: Any) -> list[str]:
 		if isinstance(value, list):
 			return [str(v) for v in value]
@@ -348,7 +348,7 @@ def normalize_classification(obj: Dict[str, Any]) -> Dict[str, Any]:
 	}
 
 
-def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 	"""Parse CLI arguments.
 
 	The new CLI primarily expects a single positional ``license_path`` argument,
@@ -372,7 +372,7 @@ def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
 	return parser.parse_args(argv)
 
 
-def main(argv: Optional[list[str]] = None) -> None:
+def main(argv: list[str] | None = None) -> None:
 	args = parse_args(argv)
 	if args.credentials_file:
 		os.environ["DCREDENTIALS_FILE"] = args.credentials_file

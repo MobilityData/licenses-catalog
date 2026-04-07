@@ -8,7 +8,7 @@ import argparse
 import json
 import subprocess
 from pathlib import Path
-from typing import Dict
+
 
 import yaml
 
@@ -24,8 +24,8 @@ def update_submodules() -> None:
 	subprocess.run(["git", "submodule", "update", "--remote", "--merge"], check=True)
 
 
-def load_spdx_licenses(spdx_dir: Path) -> Dict[str, Dict]:
-	licenses: Dict[str, Dict] = {}
+def load_spdx_licenses(spdx_dir: Path) -> dict[str, dict]:
+	licenses: dict[str, dict] = {}
 	for json_file in spdx_dir.glob("*.json"):
 		with json_file.open("r", encoding="utf-8") as f:
 			data = json.load(f)
@@ -33,8 +33,8 @@ def load_spdx_licenses(spdx_dir: Path) -> Dict[str, Dict]:
 	return licenses
 
 
-def load_choosealicense_metadata(choosealicense_dir: Path) -> Dict[str, Dict]:
-	licenses: Dict[str, Dict] = {}
+def load_choosealicense_metadata(choosealicense_dir: Path) -> dict[str, dict]:
+	licenses: dict[str, dict] = {}
 	for md_file in choosealicense_dir.glob("*.txt"):
 		with md_file.open("r", encoding="utf-8") as f:
 			content = f.read()
@@ -51,8 +51,8 @@ def load_choosealicense_metadata(choosealicense_dir: Path) -> Dict[str, Dict]:
 	return licenses
 
 
-def merge_licenses(spdx_data: Dict[str, Dict], choosealicense_data: Dict[str, Dict], uncategorized_only: bool = False) -> Dict[str, Dict]:
-	merged: Dict[str, Dict] = {}
+def merge_licenses(spdx_data: dict[str, dict], choosealicense_data: dict[str, dict], uncategorized_only: bool = False) -> dict[str, dict]:
+	merged: dict[str, dict] = {}
 	for license_id, spdx_info in spdx_data.items():
 		choose_data = choosealicense_data.get(license_id)
 		categorized = choose_data is not None

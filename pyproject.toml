@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Developer-friendly tools and data for exploring and classifying software and data licenses."
 readme = "README.md"
 license = { text = "Apache License, Version 2.0" }
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 dependencies = [
   "requests",
   "pandas",
@@ -28,10 +28,10 @@ classifiers = [
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 

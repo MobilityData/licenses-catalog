@@ -6,7 +6,7 @@ This module provides:
 import argparse
 import json
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 BASE_DIR = Path(__file__).resolve().parents[3]
 
@@ -24,7 +24,7 @@ class TagRegistry:
 
 	def __init__(self, path: Path = TAGS_JSON_PATH) -> None:
 		with path.open("r", encoding="utf-8") as f:
-			self.registry: Dict[str, Dict[str, Any]] = json.load(f)
+			self.registry: dict[str, dict[str, Any]] = json.load(f)
 
 	def is_valid(self, tag: str) -> bool:
 		group, _, key = tag.partition(":")
@@ -37,7 +37,7 @@ class TagRegistry:
 			return False
 		return key in group_dict
 
-	def get_group_meta(self, group: str) -> Optional[Dict[str, Any]]:
+	def get_group_meta(self, group: str) -> dict[str, Any] | None:
 		group_dict = self.registry.get(group)
 		if not isinstance(group_dict, dict):
 			return None
@@ -46,7 +46,7 @@ class TagRegistry:
 			return meta
 		return None
 
-	def get_tag_info(self, tag: str) -> Optional[Dict[str, Any]]:
+	def get_tag_info(self, tag: str) -> dict[str, Any] | None:
 		group, _, key = tag.partition(":")
 		group_dict = self.registry.get(group)
 		if not isinstance(group_dict, dict):
@@ -57,9 +57,9 @@ class TagRegistry:
 		return None
 
 
-def build_tags(spdx_id: str, spdx_info: Dict[str, Any]) -> List[str]:
+def build_tags(spdx_id: str, spdx_info: dict[str, Any]) -> list[str]:
 	"""Return raw tag list (strings) for a given SPDX ID using heuristics."""
-	tags: List[str] = []
+	tags: list[str] = []
 	sid = spdx_id.upper()
 
 	osi = bool(spdx_info.get("isOsiApproved"))

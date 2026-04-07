@@ -54,7 +54,7 @@ SRC_DIR = REPO_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
 	sys.path.insert(0, str(SRC_DIR))
 
-from licensing.classify.license_tags import BASE_DIR, LICENSES_DIR, TAGS_JSON_PATH, TagRegistry, apply_tags_to_file
+from licensing.classify.license_tags import LICENSES_DIR, TAGS_JSON_PATH, TagRegistry, apply_tags_to_file
 
 
 def main() -> None:
