@@ -451,7 +451,7 @@ def main(argv: list[str] | None = None) -> None:
 		output_path = Path(output_arg)
 
 	if raw_json is not None:
-		raw_json.update({k: v for k, v in classification.items() if k != "reasons"})
+		raw_json.update(classification)
 		data_to_write = raw_json
 	else:
 		data_to_write = {"license_id": license_id, "spdx_id": spdx_id, **classification}
