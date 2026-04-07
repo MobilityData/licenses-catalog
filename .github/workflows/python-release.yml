@@ -1,11 +1,8 @@
 name: Python package release
 
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: "Version to release (must match pyproject.toml)"
-        required: false
+  release:
+    types: [published]
 
 jobs:
   test:
