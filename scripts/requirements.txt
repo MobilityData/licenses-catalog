@@ -1,2 +1,4 @@
+requests
+openai
 pandas
 pyyaml

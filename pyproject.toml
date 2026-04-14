@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "licenses-catalog"
+version = "0.1.0"
+description = "Developer-friendly tools and data for exploring and classifying software and data licenses."
+readme = "README.md"
+license = { text = "Apache License, Version 2.0" }
+requires-python = ">=3.11"
+dependencies = [
+  "requests",
+  "pandas",
+  "pyyaml",
+  "openai",
+]
+authors = [
+  { name = "MobilityData" },
+]
+maintainers = [
+  { name = "MobilityData" },
+]
+classifiers = [
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/MobilityData/licenses-catalog"
+Repository = "https://github.com/MobilityData/licenses-catalog"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["licensing", "licensing.classify"]
