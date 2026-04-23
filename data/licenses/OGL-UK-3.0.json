@@ -56,50 +56,50 @@
   "reasons": {
     "permissions": {
       "commercial-use": [
-        "\"exploit the Information commercially and non-commercially for example, by combining it with other Information, or by including it in your own product\""
+        "[verbatim] \"exploit the Information commercially and non-commercially for example, by combining it with other Information, or by including it in your own product\""
       ],
       "modifications": [
-        "\"adapt the Information;\""
+        "[verbatim] \"adapt the Information;\""
       ],
       "distribution": [
-        "\"copy, publish, distribute and transmit the Information;\""
+        "[verbatim] \"copy, publish, distribute and transmit the Information;\""
       ],
       "private-use": [
-        "\"use and re-use the Information that is available under this licence freely and flexibly\""
+        "[verbatim] \"use and re-use the Information that is available under this licence freely and flexibly\""
       ],
       "data-use": [
-        "\"Information' means information protected by copyright or by database right (for example, ... data ...) offered for use under the terms of this licence.\""
+        "[verbatim] \"'Information' means information protected by copyright or by database right (for example, ... data ...) offered for use under the terms of this licence.\""
       ],
       "create-adaptations": [
-        "\"adapt the Information;\""
+        "[verbatim] \"adapt the Information;\""
       ]
     },
     "conditions": {
       "attribution": [
-        "\"acknowledge the source of the Information in your product or application by including or linking to any attribution statement specified by the Information Provider(s)\""
+        "[verbatim] \"acknowledge the source of the Information in your product or application by including or linking to any attribution statement specified by the Information Provider(s)\""
       ],
       "license-linking": [
-        "\"where possible, provide a link to this licence;\""
+        "[verbatim] \"where possible, provide a link to this licence;\""
       ],
       "non-endorsement": [
-        "\"This licence does not grant you any right to use the Information in a way that suggests any official status or that the Information Provider and/or Licensor endorse you\""
+        "[verbatim] \"This licence does not grant you any right to use the Information in a way that suggests any official status or that the Information Provider and/or Licensor endorse you\""
       ]
     },
     "limitations": {
       "trademark-use": [
-        "\"departmental or public sector organisation logos, crests and the Royal Arms except where they form an integral part of a document or dataset; ... military insignia;\""
+        "[verbatim] \"departmental or public sector organisation logos, crests and the Royal Arms except where they form an integral part of a document or dataset; ... military insignia;\""
       ],
       "liability": [
-        "\"The Information Provider and/or Licensor are not liable for any errors or omissions in the Information and shall not be liable for any loss, injury or damage of any kind caused by its use.\""
+        "[verbatim] \"The Information Provider and/or Licensor are not liable for any errors or omissions in the Information and shall not be liable for any loss, injury or damage of any kind caused by its use.\""
       ],
       "warranty": [
-        "\"The Information is licensed 'as is' and the Information Provider and/or Licensor excludes all representations, warranties, obligations and liabilities\""
+        "[verbatim] \"The Information is licensed 'as is' and the Information Provider and/or Licensor excludes all representations, warranties, obligations and liabilities\""
       ],
       "no-personal-data-guarantee": [
-        "\"This licence does not cover: personal data in the Information;\""
+        "[verbatim] \"This licence does not cover: personal data in the Information;\""
       ],
       "license-incompatibility": [
-        "\"third party rights the Information Provider is not authorised to license; other intellectual property rights, including patents, trade marks, and design rights;\""
+        "[verbatim] \"third party rights the Information Provider is not authorised to license; other intellectual property rights, including patents, trade marks, and design rights;\""
       ]
     }
   }

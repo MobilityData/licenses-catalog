@@ -67,53 +67,53 @@
   "reasons": {
     "permissions": {
       "commercial-use": [
-        "3.1: 'These rights explicitly include commercial use, and do not exclude any field of endeavour.'"
+        "[verbatim] 3.1: 'These rights explicitly include commercial use, and do not exclude any field of endeavour.'"
       ],
       "distribution": [
-        "3.1(e): 'Distribution, communication, display, lending, making available, or performance to the public...'"
+        "[verbatim] 3.1(e): 'Distribution, communication, display, lending, making available, or performance to the public by any means and in any form...'"
       ],
       "modifications": [
-        "3.1(b): 'Creation of Derivative Databases;'"
+        "[verbatim] 3.1(b): 'Creation of Derivative Databases;'"
       ],
       "private-use": [
-        "6.1(a): 'Extraction of Contents from non-electronic Databases for private purposes...'"
+        "[verbatim] 6.1(a): 'Extraction of Contents from non-electronic Databases for private purposes...'"
       ],
       "data-use": [
-        "3.1(a): 'Extraction and Re-utilisation of the whole or a Substantial part of the Contents;'"
+        "[verbatim] 3.1(a): 'Extraction and Re-utilisation of the whole or a Substantial part of the Contents;'"
       ],
       "create-adaptations": [
-        "3.1(b): 'Creation of Derivative Databases;'"
+        "[verbatim] 3.1(b): 'Creation of Derivative Databases;'"
       ]
     },
     "conditions": {
       "include-copyright": [
-        "4.2(c): 'Keep intact any copyright or Database Right notices and notices that refer to this License.'"
+        "[verbatim] 4.2(c): 'Keep intact any copyright or Database Right notices and notices that refer to this License.'"
       ],
       "attribution": [
-        "4.3: 'You must include a notice... to make any Person... aware that Content was obtained from the Database... and that it is available under this License.'"
+        "[verbatim] 4.3: 'You must include a notice... to make any Person... aware that Content was obtained from the Database... and that it is available under this License.'"
       ],
       "same-license": [
-        "4.4(a): 'Any Derivative Database that You Publicly Use must be only under the terms of: i. This License...'"
+        "[verbatim] 4.4(a): 'Any Derivative Database that You Publicly Use must be only under the terms of: i. This License...'"
       ],
       "disclose-source": [
-        "4.6: 'You must also offer... a copy in a machine readable form of: a. The entire Derivative Database; or b. A file containing all of the alterations...'"
+        "[verbatim] 4.6: 'You must also offer... a copy in a machine readable form of: a. The entire Derivative Database; or b. A file containing all of the alterations...'"
       ]
     },
     "limitations": {
       "liability": [
-        "8.1: 'Licensor is not liable for, and expressly excludes, all liability for loss or damage however and whenever caused...'"
+        "[verbatim] 8.1: 'Licensor is not liable for, and expressly excludes, all liability for loss or damage however and whenever caused...'"
       ],
       "warranty": [
-        "7.1: 'The Database is licensed by the Licensor \"as is\" and without any warranty of any kind...'"
+        "[verbatim] 7.1: 'The Database is licensed by the Licensor \"as is\" and without any warranty of any kind...'"
       ],
       "trademark-use": [
-        "2.3(c): 'This License does not cover any trademarks associated with the Database.'"
+        "[verbatim] 2.3(c): 'This License does not cover any trademarks associated with the Database.'"
       ],
       "license-incompatibility": [
-        "4.4(d): 'You must not add Contents to Derivative Databases... that are incompatible with the rights granted under this License.'"
+        "[verbatim] 4.4(d): 'You must not add Contents to Derivative Databases... that are incompatible with the rights granted under this License.'"
       ],
       "database-rights-disclaimed": [
-        "2.2(b): 'Database Rights only extend to the Extraction and Re-utilisation of the whole or a Substantial part of the Contents.'"
+        "[verbatim] 2.2(b): 'Database Rights only extend to the Extraction and Re-utilisation of the whole or a Substantial part of the Contents.'"
       ]
     }
   }

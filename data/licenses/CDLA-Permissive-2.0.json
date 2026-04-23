@@ -41,37 +41,39 @@
     "copyleft:none",
     "domain:data",
     "domain:software",
-    "license:open-source"
+    "license:open-data-commons",
+    "license:open-source",
+    "notes:custom-terms"
   ],
   "reasons": {
     "permissions": {
       "data-use": [
-        "1.1. A Data Recipient may use...the Data made available by Data Provider(s) under this agreement..."
+        "[verbatim] 1.1. A Data Recipient may use...the Data made available by Data Provider(s) under this agreement..."
       ],
       "modifications": [
-        "1.1. A Data Recipient may...modify...the Data made available by Data Provider(s) under this agreement..."
+        "[verbatim] 1.1. A Data Recipient may...modify...the Data made available by Data Provider(s) under this agreement..."
       ],
       "distribution": [
-        "1.1. A Data Recipient may...share the Data made available by Data Provider(s) under this agreement..."
+        "[verbatim] 1.1. A Data Recipient may...share the Data made available by Data Provider(s) under this agreement..."
       ],
       "private-use": [
-        "1.1. A Data Recipient may use...the Data made available by Data Provider(s) under this agreement..."
+        "[verbatim] 1.1. A Data Recipient may use...the Data made available by Data Provider(s) under this agreement..."
       ],
       "create-adaptations": [
-        "1.1. A Data Recipient may...modify...the Data made available by Data Provider(s) under this agreement..."
+        "[verbatim] 1.1. A Data Recipient may...modify...the Data made available by Data Provider(s) under this agreement..."
       ]
     },
     "conditions": {
       "license-linking": [
-        "2.1. ...so long as the Data Recipient makes available the text of this agreement with the shared Data."
+        "[verbatim] 2.1. ...so long as the Data Recipient makes available the text of this agreement with the shared Data."
       ]
     },
     "limitations": {
       "warranty": [
-        "4.1. THE DATA IS PROVIDED ON AN 'AS IS' BASIS, WITHOUT REPRESENTATIONS, WARRANTIES OR CONDITIONS OF ANY KIND..."
+        "[verbatim] 4.1. THE DATA IS PROVIDED ON AN 'AS IS' BASIS, WITHOUT REPRESENTATIONS, WARRANTIES OR CONDITIONS OF ANY KIND..."
       ],
       "liability": [
-        "NO DATA PROVIDER SHALL HAVE ANY LIABILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES..."
+        "[verbatim] NO DATA PROVIDER SHALL HAVE ANY LIABILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES..."
       ]
     }
   }

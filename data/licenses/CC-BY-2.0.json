@@ -48,38 +48,38 @@
   "reasons": {
     "permissions": {
       "distribution": [
-        "\"to distribute copies or phonorecords of, display publicly, perform publicly... the Work including as incorporated in Collective Works\""
+        "[verbatim] \"to distribute copies or phonorecords of, display publicly, perform publicly... the Work including as incorporated in Collective Works;\""
       ],
       "modifications": [
-        "\"to create and reproduce Derivative Works;\""
+        "[verbatim] \"to create and reproduce Derivative Works;\""
       ],
       "create-adaptations": [
-        "\"to create and reproduce Derivative Works;\""
+        "[verbatim] \"to create and reproduce Derivative Works;\""
       ],
       "private-use": [
-        "No restriction on private use; license grants rights \"worldwide, royalty-free, non-exclusive, perpetual...\""
+        "[inferred] No restriction on private use; license grants rights \"worldwide, royalty-free, non-exclusive, perpetual...\""
       ]
     },
     "conditions": {
       "attribution": [
-        "\"give the Original Author credit reasonable to the medium or means... by conveying the name... of the Original Author if supplied; the title... if supplied...\""
+        "[verbatim] \"give the Original Author credit reasonable to the medium or means... by conveying the name... of the Original Author if supplied; the title... if supplied...\""
       ],
       "include-copyright": [
-        "\"You must keep intact all copyright notices for the Work\""
+        "[verbatim] \"You must keep intact all copyright notices for the Work\""
       ],
       "license-linking": [
-        "\"You must include a copy of, or the Uniform Resource Identifier for, this License with every copy... you distribute...\""
+        "[verbatim] \"You must include a copy of, or the Uniform Resource Identifier for, this License with every copy... you distribute...\""
       ]
     },
     "limitations": {
       "warranty": [
-        "\"LICENSOR OFFERS THE WORK AS-IS AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND...\""
+        "[verbatim] \"LICENSOR OFFERS THE WORK AS-IS AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND...\""
       ],
       "liability": [
-        "\"IN NO EVENT WILL LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL... DAMAGES...\""
+        "[verbatim] \"IN NO EVENT WILL LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL... DAMAGES...\""
       ],
       "trademark-use": [
-        "\"neither party will use the trademark 'Creative Commons' or any related trademark... without the prior written consent...\""
+        "[verbatim] \"neither party will use the trademark 'Creative Commons' or any related trademark... without the prior written consent...\""
       ]
     }
   }

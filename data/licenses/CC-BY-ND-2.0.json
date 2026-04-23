@@ -31,8 +31,7 @@
   "conditions": [
     "attribution",
     "license-linking",
-    "include-copyright",
-    "notes:no-derivatives"
+    "include-copyright"
   ],
   "limitations": [
     "warranty",
@@ -49,35 +48,32 @@
   "reasons": {
     "permissions": {
       "distribution": [
-        "\"to distribute copies or phonorecords of, display publicly, perform publicly...the Work including as incorporated in Collective Works\""
+        "[verbatim] \"to distribute copies or phonorecords of, display publicly, perform publicly...the Work including as incorporated in Collective Works\""
       ],
       "private-use": [
-        "No clause restricts private use; license grants rights \"to exercise the rights in the Work\" without limiting to public uses."
+        "[inferred] No clause restricts private use; license grants rights \"to exercise the rights in the Work\" without limiting to public uses."
       ]
     },
     "conditions": {
       "attribution": [
-        "\"give the Original Author credit reasonable to the medium or means You are utilizing by conveying the name...title...URI...\""
+        "[verbatim] \"give the Original Author credit reasonable to the medium or means You are utilizing by conveying the name...title...URI...\""
       ],
       "license-linking": [
-        "\"You must include a copy of, or the Uniform Resource Identifier for, this License with every copy...of the Work You distribute...\""
+        "[verbatim] \"You must include a copy of, or the Uniform Resource Identifier for, this License with every copy...of the Work You distribute...\""
       ],
       "include-copyright": [
-        "\"You must keep intact all notices that refer to this License and to the disclaimer of warranties.\""
-      ],
-      "notes:no-derivatives": [
-        "\"you have no rights to make Derivative Works\""
+        "[verbatim] \"You must keep intact all notices that refer to this License and to the disclaimer of warranties.\""
       ]
     },
     "limitations": {
       "warranty": [
-        "\"LICENSOR OFFERS THE WORK AS-IS AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND...\""
+        "[verbatim] \"LICENSOR OFFERS THE WORK AS-IS AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND...\""
       ],
       "liability": [
-        "\"IN NO EVENT WILL LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL...DAMAGES...\""
+        "[verbatim] \"IN NO EVENT WILL LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL...DAMAGES...\""
       ],
       "trademark-use": [
-        "\"neither party will use the trademark 'Creative Commons' or any related trademark or logo...without the prior written consent...\""
+        "[verbatim] \"neither party will use the trademark 'Creative Commons' or any related trademark or logo...without the prior written consent...\""
       ]
     }
   }

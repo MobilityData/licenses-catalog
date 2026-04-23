@@ -56,53 +56,53 @@
   "reasons": {
     "permissions": {
       "modifications": [
-        "Section 2(a)(1)(B): 'produce, reproduce, and Share Adapted Material for NonCommercial purposes only.'"
+        "[verbatim] Section 2(a)(1)(B): 'produce, reproduce, and Share Adapted Material for NonCommercial purposes only.'"
       ],
       "distribution": [
-        "Section 2(a)(1)(A): 'reproduce and Share the Licensed Material, in whole or in part, for NonCommercial purposes only;'"
+        "[verbatim] Section 2(a)(1)(A): 'reproduce and Share the Licensed Material, in whole or in part, for NonCommercial purposes only;'"
       ],
       "private-use": [
-        "No restriction on private use; license only restricts commercial use and requires conditions when sharing."
+        "[inferred] No restriction on private use; license only restricts commercial use and requires conditions when sharing."
       ],
       "data-use": [
-        "Section 4(a): 'grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database for NonCommercial purposes only;'"
+        "[verbatim] Section 4(a): 'grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database for NonCommercial purposes only;'"
       ],
       "create-adaptations": [
-        "Section 2(a)(1)(B): 'produce, reproduce, and Share Adapted Material for NonCommercial purposes only.'"
+        "[verbatim] Section 2(a)(1)(B): 'produce, reproduce, and Share Adapted Material for NonCommercial purposes only.'"
       ]
     },
     "conditions": {
       "attribution": [
-        "Section 3(a)(1)(A): 'identification of the creator(s)... in any reasonable manner requested by the Licensor... a copyright notice... notice that refers to this Public License...'"
+        "[verbatim] Section 3(a)(1)(A): 'identification of the creator(s)... in any reasonable manner requested by the Licensor... a copyright notice... notice that refers to this Public License...'"
       ],
       "include-copyright": [
-        "Section 3(a)(1)(A)(ii): 'a copyright notice;'"
+        "[verbatim] Section 3(a)(1)(A)(ii): 'a copyright notice;'"
       ],
       "license-linking": [
-        "Section 3(a)(1)(C): 'include the text of, or the URI or hyperlink to, this Public License.'"
+        "[verbatim] Section 3(a)(1)(C): 'include the text of, or the URI or hyperlink to, this Public License.'"
       ],
       "mark-changes": [
-        "Section 3(a)(1)(B): 'indicate if You modified the Licensed Material and retain an indication of any previous modifications;'"
+        "[verbatim] Section 3(a)(1)(B): 'indicate if You modified the Licensed Material and retain an indication of any previous modifications;'"
       ],
       "share-alike": [
-        "Section 3(b)(1): 'The Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-NC-SA Compatible License.'"
+        "[verbatim] Section 3(b)(1): 'The Adapter’s License You apply must be a Creative Commons license with the same License Elements, this version or later, or a BY-NC-SA Compatible License.'"
       ],
       "non-endorsement": [
-        "Section 2(a)(6): 'Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are... sponsored, endorsed... by, the Licensor...'"
+        "[verbatim] Section 2(a)(6): 'Nothing in this Public License constitutes or may be construed as permission to assert or imply that You are... sponsored, endorsed... by, the Licensor...'"
       ]
     },
     "limitations": {
       "trademark-use": [
-        "Section after Section 8: 'Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent...'"
+        "[verbatim] After Section 8: 'Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent...'"
       ],
       "liability": [
-        "Section 5(b): 'in no event will the Licensor be liable to You on any legal theory... for any direct, special, indirect, incidental, consequential... damages...'"
+        "[verbatim] Section 5(b): 'in no event will the Licensor be liable to You on any legal theory... for any direct, special, indirect, incidental, consequential... damages...'"
       ],
       "warranty": [
-        "Section 5(a): 'the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind...'"
+        "[verbatim] Section 5(a): 'the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind...'"
       ],
       "patent-use": [
-        "Section 2(b)(2): 'Patent and trademark rights are not licensed under this Public License.'"
+        "[verbatim] Section 2(b)(2): 'Patent and trademark rights are not licensed under this Public License.'"
       ]
     }
   }

@@ -54,50 +54,52 @@
   "reasons": {
     "permissions": {
       "commercial-use": [
-        "No restriction on commercial use; license grant is 'worldwide, royalty-free, non-exclusive, perpetual...'"
+        "[verbatim] Section 3: 'worldwide, royalty-free, non-exclusive, perpetual... license to exercise the rights in the Work as stated below:'",
+        "[inferred] No restriction on commercial use; license grant is not limited by field of use."
       ],
       "modifications": [
-        "Section 3(b): 'to create and Reproduce Adaptations...'"
+        "[verbatim] Section 3(b): 'to create and Reproduce Adaptations...'"
       ],
       "distribution": [
-        "Section 3(a): 'to Reproduce the Work... and to Reproduce the Work as incorporated in the Collections;'"
+        "[verbatim] Section 3(a): 'to Reproduce the Work, to incorporate the Work into one or more Collections, and to Reproduce the Work as incorporated in the Collections;'",
+        "[verbatim] Section 3(c): 'to Distribute and Publicly Perform the Work including as incorporated in Collections;'"
       ],
       "private-use": [
-        "No restriction on private use; all rights granted unless otherwise limited."
+        "[inferred] No restriction on private use; all rights granted unless otherwise limited."
       ],
       "create-adaptations": [
-        "Section 3(b): 'to create and Reproduce Adaptations...'"
+        "[verbatim] Section 3(b): 'to create and Reproduce Adaptations...'"
       ]
     },
     "conditions": {
       "attribution": [
-        "Section 4(c): 'provide... (i) the name of the Original Author... (ii) the title of the Work... (iii) the URI...'"
+        "[verbatim] Section 4(c): 'provide... (i) the name of the Original Author... (ii) the title of the Work... (iii) the URI...'"
       ],
       "include-copyright": [
-        "Section 4(c): 'keep intact all copyright notices for the Work...'"
+        "[verbatim] Section 4(c): 'keep intact all copyright notices for the Work...'"
       ],
       "license-linking": [
-        "Section 4(a): 'You must include a copy of, or the Uniform Resource Identifier (URI) for, this License...'"
+        "[verbatim] Section 4(a): 'You must include a copy of, or the Uniform Resource Identifier (URI) for, this License with every copy of the Work You Distribute or Publicly Perform.'"
       ],
       "share-alike": [
-        "Section 4(b): 'You may Distribute or Publicly Perform an Adaptation only under the terms of: (i) this License...'"
+        "[verbatim] Section 4(b): 'You may Distribute or Publicly Perform an Adaptation only under the terms of: (i) this License; (ii) a later version... (iii) a Creative Commons jurisdiction license... (iv) a Creative Commons Compatible License.'"
       ],
       "mark-changes": [
-        "Section 3(b): 'takes reasonable steps to clearly label, demarcate or otherwise identify that changes were made...'"
+        "[verbatim] Section 3(b): 'takes reasonable steps to clearly label, demarcate or otherwise identify that changes were made to the original Work.'"
       ],
       "non-endorsement": [
-        "Section 4(c): 'You may not... imply any connection with, sponsorship or endorsement by the Original Author...'"
+        "[verbatim] Section 4(c): 'You may not... imply any connection with, sponsorship or endorsement by the Original Author, Licensor and/or Attribution Parties...'"
       ]
     },
     "limitations": {
       "liability": [
-        "Section 6: 'IN NO EVENT WILL LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL...'"
+        "[verbatim] Section 6: 'IN NO EVENT WILL LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL, PUNITIVE OR EXEMPLARY DAMAGES...'"
       ],
       "warranty": [
-        "Section 5: 'LICENSOR OFFERS THE WORK AS-IS AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND...'"
+        "[verbatim] Section 5: 'LICENSOR OFFERS THE WORK AS-IS AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND...'"
       ],
       "trademark-use": [
-        "Creative Commons Notice: 'Creative Commons does not authorize the use... of the trademark \"Creative Commons\"...'"
+        "[verbatim] Creative Commons Notice: 'Creative Commons does not authorize the use... of the trademark \"Creative Commons\" or any related trademark or logo...'"
       ]
     }
   }

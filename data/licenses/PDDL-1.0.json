@@ -58,40 +58,40 @@
   "reasons": {
     "permissions": {
       "commercial-use": [
-        "\"there are no restrictions or requirements placed on the recipient by this document. Recipients may use this work commercially\""
+        "[verbatim] \"there are no restrictions or requirements placed on the recipient by this document. Recipients may use this work commercially\""
       ],
       "modifications": [
-        "\"freely share, modify, and use this work for any purpose and without any restrictions\""
+        "[verbatim] \"freely share, modify, and use this work for any purpose and without any restrictions\""
       ],
       "distribution": [
-        "\"freely share, modify, and use this work for any purpose and without any restrictions\""
+        "[verbatim] \"freely share, modify, and use this work for any purpose and without any restrictions\""
       ],
       "private-use": [
-        "\"there are no restrictions or requirements placed on the recipient by this document\""
+        "[verbatim] \"there are no restrictions or requirements placed on the recipient by this document\""
       ],
       "data-use": [
-        "\"this licence is intended for use on databases or their contents ('data'), either together or individually\""
+        "[verbatim] \"this licence is intended for use on databases or their contents ('data'), either together or individually\""
       ],
       "create-adaptations": [
-        "\"share their changes and additions or keep them secret\""
+        "[verbatim] \"share their changes and additions or keep them secret\""
       ]
     },
     "conditions": {},
     "limitations": {
       "trademark-use": [
-        "\"This Document does not cover any trade marks associated with the Database. Please see Section 4.3 later in this Document for further details.\""
+        "[verbatim] \"This Document does not cover any trade marks associated with the Database. Please see Section 4.3 later in this Document for further details.\""
       ],
       "patent-use": [
-        "\"This Document does not cover any patents over the Data or the Database. Please see Section 4.2 later in this Document for further details.\""
+        "[verbatim] \"This Document does not cover any patents over the Data or the Database. Please see Section 4.2 later in this Document for further details.\""
       ],
       "liability": [
-        "\"the Rightsholder is not liable for, and expressly excludes, all liability for loss or damage however and whenever caused to anyone by any use under this Document\""
+        "[verbatim] \"the Rightsholder is not liable for, and expressly excludes, all liability for loss or damage however and whenever caused to anyone by any use under this Document\""
       ],
       "warranty": [
-        "\"The Work is provided by the Rightsholder 'as is' and without any warranty of any kind, either express or implied\""
+        "[verbatim] \"The Work is provided by the Rightsholder 'as is' and without any warranty of any kind, either express or implied\""
       ],
       "database-rights-disclaimed": [
-        "\"dedicates the Work to the public domain for the benefit of the public and relinquishes all rights in Copyright and Database Rights over the Work\""
+        "[verbatim] \"dedicates the Work to the public domain for the benefit of the public and relinquishes all rights in Copyright and Database Rights over the Work\""
       ]
     }
   }

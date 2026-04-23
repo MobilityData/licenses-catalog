@@ -44,7 +44,6 @@
     "copyleft:none",
     "domain:content",
     "domain:data",
-    "domain:documentation",
     "domain:mixed",
     "license:creative-commons",
     "license:public-domain",
@@ -53,40 +52,40 @@
   "reasons": {
     "permissions": {
       "commercial-use": [
-        "\"for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes\""
+        "[verbatim] \"for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes\""
       ],
       "modifications": [
-        "\"build upon, modify, incorporate in other works, reuse and redistribute as freely as possible in any form whatsoever\""
+        "[verbatim] \"build upon, modify, incorporate in other works, reuse and redistribute as freely as possible in any form whatsoever\""
       ],
       "distribution": [
-        "\"redistribute as freely as possible in any form whatsoever and for any purposes\""
+        "[verbatim] \"redistribute as freely as possible in any form whatsoever and for any purposes\""
       ],
       "private-use": [
-        "\"for any purpose whatsoever\""
+        "[verbatim] \"for any purpose whatsoever\""
       ],
       "data-use": [
-        "\"rights protecting the extraction, dissemination, use and reuse of data in a Work\""
+        "[verbatim] \"rights protecting the extraction, dissemination, use and reuse of data in a Work\""
       ],
       "text-and-data-mining": [
-        "\"rights protecting the extraction, dissemination, use and reuse of data in a Work\""
+        "[verbatim] \"rights protecting the extraction, dissemination, use and reuse of data in a Work\""
       ],
       "create-adaptations": [
-        "\"build upon, modify, incorporate in other works\""
+        "[verbatim] \"build upon, modify, incorporate in other works\""
       ]
     },
     "conditions": {},
     "limitations": {
       "trademark-use": [
-        "\"No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document.\""
+        "[verbatim] \"No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document.\""
       ],
       "patent-use": [
-        "\"No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document.\""
+        "[verbatim] \"No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document.\""
       ],
       "liability": [
-        "\"disclaims liability for damages resulting from the use of this document or the information or works provided hereunder.\""
+        "[verbatim] \"disclaims liability for damages resulting from the use of this document or the information or works provided hereunder.\""
       ],
       "warranty": [
-        "\"makes no representations or warranties of any kind concerning the Work, express, implied, statutory or otherwise\""
+        "[verbatim] \"makes no representations or warranties of any kind concerning the Work, express, implied, statutory or otherwise\""
       ]
     }
   }

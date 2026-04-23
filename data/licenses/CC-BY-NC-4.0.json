@@ -55,50 +55,50 @@
   "reasons": {
     "permissions": {
       "modifications": [
-        "Section 2(a)(1)(B): 'produce, reproduce, and Share Adapted Material for NonCommercial purposes only'"
+        "[verbatim] Section 2(a)(1)(B): 'produce, reproduce, and Share Adapted Material for NonCommercial purposes only'"
       ],
       "distribution": [
-        "Section 2(a)(1)(A): 'reproduce and Share the Licensed Material, in whole or in part, for NonCommercial purposes only'"
+        "[verbatim] Section 2(a)(1)(A): 'reproduce and Share the Licensed Material, in whole or in part, for NonCommercial purposes only'"
       ],
       "private-use": [
-        "Section 2(a)(1): 'the Licensor hereby grants You ... to exercise the Licensed Rights ...'"
+        "[inferred] Section 2(a)(1): broad grant to exercise Licensed Rights; no restriction on private use"
       ],
       "data-use": [
-        "Section 4(a): 'grants You the right to extract, reuse, reproduce, and Share ... contents of the database for NonCommercial purposes only'"
+        "[verbatim] Section 4(a): 'grants You the right to extract, reuse, reproduce, and Share ... contents of the database for NonCommercial purposes only'"
       ],
       "create-adaptations": [
-        "Section 2(a)(1)(B): 'produce, reproduce, and Share Adapted Material for NonCommercial purposes only'"
+        "[verbatim] Section 2(a)(1)(B): 'produce, reproduce, and Share Adapted Material for NonCommercial purposes only'"
       ]
     },
     "conditions": {
       "attribution": [
-        "Section 3(a)(1)(A)(i): 'identification of the creator(s) ... in any reasonable manner requested by the Licensor'"
+        "[verbatim] Section 3(a)(1)(A)(i): 'identification of the creator(s) ... in any reasonable manner requested by the Licensor'"
       ],
       "include-copyright": [
-        "Section 3(a)(1)(A)(ii): 'a copyright notice'"
+        "[verbatim] Section 3(a)(1)(A)(ii): 'a copyright notice'"
       ],
       "license-linking": [
-        "Section 3(a)(1)(C): 'include the text of, or the URI or hyperlink to, this Public License'"
+        "[verbatim] Section 3(a)(1)(C): 'include the text of, or the URI or hyperlink to, this Public License'"
       ],
       "mark-changes": [
-        "Section 3(a)(1)(B): 'indicate if You modified the Licensed Material and retain an indication of any previous modifications'"
+        "[verbatim] Section 3(a)(1)(B): 'indicate if You modified the Licensed Material and retain an indication of any previous modifications'"
       ],
       "non-endorsement": [
-        "Section 2(a)(6): 'Nothing ... may be construed as permission to assert or imply that You are ... sponsored, endorsed ... by, the Licensor'"
+        "[verbatim] Section 2(a)(6): 'Nothing ... may be construed as permission to assert or imply that You are ... sponsored, endorsed ... by, the Licensor'"
       ]
     },
     "limitations": {
       "liability": [
-        "Section 5(b): 'in no event will the Licensor be liable to You on any legal theory ... for any ... damages arising out of this Public License'"
+        "[verbatim] Section 5(b): 'in no event will the Licensor be liable to You on any legal theory ... for any ... damages arising out of this Public License'"
       ],
       "warranty": [
-        "Section 5(a): 'the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind'"
+        "[verbatim] Section 5(a): 'the Licensor offers the Licensed Material as-is and as-available, and makes no representations or warranties of any kind'"
       ],
       "trademark-use": [
-        "Final paragraph: 'Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark ... without its prior written consent'"
+        "[verbatim] Final paragraph: 'Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark ... without its prior written consent'"
       ],
       "license-incompatibility": [
-        "Section 2(a)(5)(B): 'You may not offer or impose any additional or different terms or conditions ... if doing so restricts exercise of the Licensed Rights'"
+        "[verbatim] Section 2(a)(5)(B): 'You may not offer or impose any additional or different terms or conditions ... if doing so restricts exercise of the Licensed Rights'"
       ]
     }
   }

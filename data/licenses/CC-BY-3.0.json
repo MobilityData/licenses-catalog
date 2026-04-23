@@ -51,47 +51,47 @@
   "reasons": {
     "permissions": {
       "commercial-use": [
-        "Section 3: 'worldwide, royalty-free, non-exclusive, perpetual ... license to exercise the rights in the Work as stated below'"
+        "[verbatim] Section 3: 'worldwide, royalty-free, non-exclusive, perpetual ... license to exercise the rights in the Work as stated below'"
       ],
       "modifications": [
-        "Section 3(b): 'to create and Reproduce Adaptations ... including any translation in any medium'"
+        "[verbatim] Section 3(b): 'to create and Reproduce Adaptations ... including any translation in any medium'"
       ],
       "distribution": [
-        "Section 3(c): 'to Distribute and Publicly Perform the Work including as incorporated in Collections'"
+        "[verbatim] Section 3(c): 'to Distribute and Publicly Perform the Work including as incorporated in Collections'"
       ],
       "private-use": [
-        "No restriction on private use; rights are granted 'worldwide, royalty-free, non-exclusive, perpetual'"
+        "[inferred] No restriction on private use; rights are granted 'worldwide, royalty-free, non-exclusive, perpetual'"
       ],
       "create-adaptations": [
-        "Section 3(b): 'to create and Reproduce Adaptations ... including any translation in any medium'"
+        "[verbatim] Section 3(b): 'to create and Reproduce Adaptations ... including any translation in any medium'"
       ]
     },
     "conditions": {
       "attribution": [
-        "Section 4(b): 'provide ... (i) the name of the Original Author ... (ii) the title of the Work ... (iv) ... a credit identifying the use of the Work in the Adaptation'"
+        "[verbatim] Section 4(b): 'provide ... (i) the name of the Original Author ... (ii) the title of the Work ... (iv) ... a credit identifying the use of the Work in the Adaptation'"
       ],
       "include-copyright": [
-        "Section 4(b): 'keep intact all copyright notices for the Work'"
+        "[verbatim] Section 4(b): 'keep intact all copyright notices for the Work'"
       ],
       "license-linking": [
-        "Section 4(a): 'include a copy of, or the Uniform Resource Identifier (URI) for, this License with every copy of the Work You Distribute or Publicly Perform'"
+        "[verbatim] Section 4(a): 'include a copy of, or the Uniform Resource Identifier (URI) for, this License with every copy of the Work You Distribute or Publicly Perform'"
       ],
       "mark-changes": [
-        "Section 3(b): 'takes reasonable steps to clearly label, demarcate or otherwise identify that changes were made to the original Work'"
+        "[verbatim] Section 3(b): 'takes reasonable steps to clearly label, demarcate or otherwise identify that changes were made to the original Work'"
       ],
       "non-endorsement": [
-        "Section 4(b): 'You may not ... assert or imply any connection with, sponsorship or endorsement by the Original Author, Licensor and/or Attribution Parties'"
+        "[verbatim] Section 4(b): 'You may not ... assert or imply any connection with, sponsorship or endorsement by the Original Author, Licensor and/or Attribution Parties'"
       ]
     },
     "limitations": {
       "liability": [
-        "Section 6: 'IN NO EVENT WILL LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL, PUNITIVE OR EXEMPLARY DAMAGES'"
+        "[verbatim] Section 6: 'IN NO EVENT WILL LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL, PUNITIVE OR EXEMPLARY DAMAGES'"
       ],
       "warranty": [
-        "Section 5: 'LICENSOR OFFERS THE WORK AS-IS AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING THE WORK'"
+        "[verbatim] Section 5: 'LICENSOR OFFERS THE WORK AS-IS AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND CONCERNING THE WORK'"
       ],
       "trademark-use": [
-        "Creative Commons Notice: 'Creative Commons does not authorize the use ... of the trademark \"Creative Commons\" or any related trademark or logo ... without ... consent'"
+        "[verbatim] Creative Commons Notice: 'Creative Commons does not authorize the use ... of the trademark \"Creative Commons\" or any related trademark or logo ... without ... consent'"
       ]
     }
   }

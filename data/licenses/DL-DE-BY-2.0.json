@@ -40,39 +40,40 @@
   "tags": [
     "domain:data",
     "domain:software",
+    "license:government-open-license",
     "license:open-source",
     "notes:attribution-required"
   ],
   "reasons": {
     "permissions": {
       "commercial-use": [
-        "\"for commercial and non-commercial use, in particular...\""
+        "[verbatim] \"The data and meta-data provided may, for commercial and non-commercial use, in particular...\""
       ],
       "modifications": [
-        "\"altered, processed...\""
+        "[verbatim] \"be...altered, processed...\""
       ],
       "distribution": [
-        "\"transmitted to third parties\""
+        "[verbatim] \"be...transmitted to third parties\""
       ],
       "private-use": [
-        "\"be integrated in internal...business processes...in non-public electronic networks\""
+        "[verbatim] \"be integrated in internal...business processes...in non-public electronic networks\""
       ],
       "data-use": [
-        "\"The data and meta-data provided may...be copied, printed, presented...\""
+        "[verbatim] \"The data and meta-data provided may...be copied, printed, presented...\""
       ],
       "create-adaptations": [
-        "\"be merged with own data and with the data of others and be combined to form new and independent datasets\""
+        "[verbatim] \"be merged with own data and with the data of others and be combined to form new and independent datasets\""
       ]
     },
     "conditions": {
       "attribution": [
-        "\"the name of the provider\" must be included in the source note"
+        "[verbatim] \"the name of the provider\" must be included in the source note"
       ],
       "mark-changes": [
-        "\"Changes, editing, new designs or other amendments must be marked as such in the source note.\""
+        "[verbatim] \"Changes, editing, new designs or other amendments must be marked as such in the source note.\""
       ],
       "license-linking": [
-        "\"the annotation 'Data licence Germany – attribution – Version 2.0'...referring to the licence text available at www.govdata.de/dl-de/by-2-0\""
+        "[verbatim] \"the annotation 'Data licence Germany – attribution – Version 2.0'...referring to the licence text available at www.govdata.de/dl-de/by-2-0\""
       ]
     },
     "limitations": {}

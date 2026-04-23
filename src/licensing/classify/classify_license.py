@@ -287,7 +287,7 @@ def _extract_json_obj(raw: str) -> dict[str, Any] | None:
 	return None
 
 
-def call_llm(system_prompt: str, user_prompt: str, license_text: str, model: str = "gpt-4.1") -> dict[str, Any]:
+def call_llm(system_prompt: str, user_prompt: str, license_text: str, model: str = "gpt-5.4") -> dict[str, Any]:
 	import sys
 	empty = {
 		"permissions": [],
