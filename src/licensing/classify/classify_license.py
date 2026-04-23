@@ -396,7 +396,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 	parser.add_argument("--disable-llm", action="store_true", help="Disable the LLM and return empty classification.")
 	parser.add_argument("--system-prompt", default=str(DEFAULT_SYSTEM_PROMPT_PATH), help="Path to system prompt file.")
 	parser.add_argument("--user-prompt", default=str(DEFAULT_USER_PROMPT_PATH), help="Path to user prompt template.")
-	parser.add_argument("--model", default="gpt-4.1", help="LLM model name to use (default: gpt-4.1).")
+	parser.add_argument("--model", default="gpt-5.4", help="LLM model name to use (default: gpt-5.4).")
 	parser.add_argument(
 		"--output",
 		nargs="?",

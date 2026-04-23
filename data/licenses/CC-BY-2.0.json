@@ -24,22 +24,25 @@
   },
   "categorized": false,
   "permissions": [
-    "distribution",
+    "commercial-use",
     "modifications",
-    "create-adaptations",
-    "private-use"
+    "distribution",
+    "private-use",
+    "create-adaptations"
   ],
   "conditions": [
-    "attribution",
     "include-copyright",
+    "attribution",
+    "mark-changes",
     "license-linking"
   ],
   "limitations": [
-    "warranty",
+    "trademark-use",
     "liability",
-    "trademark-use"
+    "warranty"
   ],
   "tags": [
+    "copyleft:none",
     "domain:content",
     "family:CC",
     "license:creative-commons",
@@ -47,39 +50,48 @@
   ],
   "reasons": {
     "permissions": {
-      "distribution": [
-        "[verbatim] \"to distribute copies or phonorecords of, display publicly, perform publicly... the Work including as incorporated in Collective Works;\""
+      "commercial-use": [
+        "[inferred] Worldwide, royalty-free rights to reproduce, create derivatives, and distribute with no field-of-use restriction permit commercial use"
       ],
       "modifications": [
-        "[verbatim] \"to create and reproduce Derivative Works;\""
+        "[verbatim] 3.b: \"to create and reproduce Derivative Works;\"",
+        "[verbatim] \"The above rights include the right to make such modifications as are technically necessary\""
       ],
-      "create-adaptations": [
-        "[verbatim] \"to create and reproduce Derivative Works;\""
+      "distribution": [
+        "[verbatim] 3.c: \"to distribute copies or phonorecords of... the Work including as incorporated in Collective Works;\"",
+        "[verbatim] 3.d: \"to distribute copies or phonorecords of... Derivative Works.\""
       ],
       "private-use": [
-        "[inferred] No restriction on private use; license grants rights \"worldwide, royalty-free, non-exclusive, perpetual...\""
+        "[inferred] Broad rights to reproduce and create derivative works, with no private-use restriction, permit private use"
+      ],
+      "create-adaptations": [
+        "[verbatim] 1.b: \"Derivative Work\" includes works \"recast, transformed, or adapted\"",
+        "[verbatim] 3.b: \"to create and reproduce Derivative Works;\""
       ]
     },
     "conditions": {
-      "attribution": [
-        "[verbatim] \"give the Original Author credit reasonable to the medium or means... by conveying the name... of the Original Author if supplied; the title... if supplied...\""
-      ],
       "include-copyright": [
-        "[verbatim] \"You must keep intact all copyright notices for the Work\""
+        "[verbatim] 4.b: \"You must keep intact all copyright notices for the Work\""
+      ],
+      "attribution": [
+        "[verbatim] 4.b: \"give the Original Author credit reasonable to the medium or means You are utilizing\""
+      ],
+      "mark-changes": [
+        "[verbatim] 4.b: for a Derivative Work, include \"a credit identifying the use of the Work in the Derivative Work\""
       ],
       "license-linking": [
-        "[verbatim] \"You must include a copy of, or the Uniform Resource Identifier for, this License with every copy... you distribute...\""
+        "[verbatim] 4.a: \"You must include a copy of, or the Uniform Resource Identifier for, this License with every copy\""
       ]
     },
     "limitations": {
-      "warranty": [
-        "[verbatim] \"LICENSOR OFFERS THE WORK AS-IS AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND...\""
+      "trademark-use": [
+        "[verbatim] \"neither party will use the trademark \\\"Creative Commons\\\"... without the prior written consent\""
       ],
       "liability": [
-        "[verbatim] \"IN NO EVENT WILL LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL... DAMAGES...\""
+        "[verbatim] 6: \"IN NO EVENT WILL LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY... DAMAGES\""
       ],
-      "trademark-use": [
-        "[verbatim] \"neither party will use the trademark 'Creative Commons' or any related trademark... without the prior written consent...\""
+      "warranty": [
+        "[verbatim] 5: \"LICENSOR OFFERS THE WORK AS-IS AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND\""
       ]
     }
   }

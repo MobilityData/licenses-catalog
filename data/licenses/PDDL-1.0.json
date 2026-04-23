@@ -44,7 +44,6 @@
   "conditions": [],
   "limitations": [
     "trademark-use",
-    "patent-use",
     "liability",
     "warranty",
     "database-rights-disclaimed"
@@ -58,40 +57,46 @@
   "reasons": {
     "permissions": {
       "commercial-use": [
-        "[verbatim] \"there are no restrictions or requirements placed on the recipient by this document. Recipients may use this work commercially\""
+        "[verbatim] \"Recipients may use this work commercially\"",
+        "[verbatim] \"These rights explicitly include commercial use, and do not exclude any field of endeavour.\""
       ],
       "modifications": [
-        "[verbatim] \"freely share, modify, and use this work for any purpose and without any restrictions\""
+        "[verbatim] \"freely share, modify, and use this work for any purpose and without any restrictions\"",
+        "[verbatim] \"Use... includes modifying the Work as may be technically necessary to use it in a different mode or format.\""
       ],
       "distribution": [
-        "[verbatim] \"freely share, modify, and use this work for any purpose and without any restrictions\""
+        "[verbatim] \"freely share, modify, and use this work for any purpose and without any restrictions\"",
+        "[inferred] \"share\" and unrestricted \"use\" support permission to distribute the Work"
       ],
       "private-use": [
-        "[verbatim] \"there are no restrictions or requirements placed on the recipient by this document\""
+        "[verbatim] \"there are no restrictions or requirements placed on the recipient by this document\"",
+        "[inferred] No use-type restriction is stated; private use is therefore allowed"
       ],
       "data-use": [
-        "[verbatim] \"this licence is intended for use on databases or their contents ('data'), either together or individually\""
+        "[verbatim] \"This licence is intended for use on databases or their contents (\\\"data\\\"), either together or individually.\"",
+        "[verbatim] \"Database Rights only extend to the extraction and re-utilisation of the whole or a substantial part of the Data.\""
       ],
       "create-adaptations": [
-        "[verbatim] \"share their changes and additions or keep them secret\""
+        "[verbatim] \"Recipients may... combine this data or database with other databases or data, and share their changes and additions\"",
+        "[inferred] Combining data and sharing changes/additions permits creating adapted versions"
       ]
     },
     "conditions": {},
     "limitations": {
       "trademark-use": [
-        "[verbatim] \"This Document does not cover any trade marks associated with the Database. Please see Section 4.3 later in this Document for further details.\""
-      ],
-      "patent-use": [
-        "[verbatim] \"This Document does not cover any patents over the Data or the Database. Please see Section 4.2 later in this Document for further details.\""
+        "[verbatim] \"This Document does not cover any trade marks associated with the Database.\"",
+        "[verbatim] \"This Document does not grant You a licence for any trade marks that the Rightsholder may own\""
       ],
       "liability": [
-        "[verbatim] \"the Rightsholder is not liable for, and expressly excludes, all liability for loss or damage however and whenever caused to anyone by any use under this Document\""
+        "[verbatim] \"the Rightsholder is not liable for, and expressly excludes, all liability for loss or damage\"",
+        "[verbatim] \"If liability may not be excluded by law, it is limited to actual and direct financial loss\""
       ],
       "warranty": [
-        "[verbatim] \"The Work is provided by the Rightsholder 'as is' and without any warranty of any kind, either express or implied\""
+        "[verbatim] \"The Work is provided by the Rightsholder \\\"as is\\\" and without any warranty of any kind\""
       ],
       "database-rights-disclaimed": [
-        "[verbatim] \"dedicates the Work to the public domain for the benefit of the public and relinquishes all rights in Copyright and Database Rights over the Work\""
+        "[verbatim] \"A dedication to the public domain and waiver of Copyright and Database Rights over the Work\"",
+        "[verbatim] \"dedicates the Work to the public domain... and relinquishes all rights in Copyright and Database Rights\""
       ]
     }
   }

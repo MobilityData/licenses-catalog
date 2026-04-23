@@ -53,6 +53,7 @@
     "no-personal-data-guarantee"
   ],
   "tags": [
+    "copyleft:none",
     "domain:content",
     "domain:data",
     "license:government-open-license",
@@ -63,41 +64,45 @@
   "reasons": {
     "permissions": {
       "commercial-use": [
-        "[verbatim] \"de l’exploiter à titre commercial, par exemple en la combinant avec d’autres informations, ou en l’incluant dans son propre produit ou application.\""
+        "[verbatim] \"à des fins commerciales ou non\"",
+        "[verbatim] \"de l’exploiter à titre commercial\""
       ],
       "modifications": [
-        "[verbatim] \"de l’adapter, la modifier, l’extraire et la transformer, pour créer des 'Informations dérivées', des produits ou des services,\""
+        "[verbatim] \"de l’adapter, la modifier, l’extraire et la transformer\""
       ],
       "distribution": [
-        "[verbatim] \"de la communiquer, la diffuser, la redistribuer, la publier et la transmettre,\""
+        "[verbatim] \"de la communiquer, la diffuser, la redistribuer, la publier et la transmettre\""
       ],
       "private-use": [
-        "[verbatim] \"libre 'Réutilisation' de l’'Information' objet de la présente licence, à des fins commerciales ou non\""
+        "[verbatim] \"à des fins commerciales ou non\""
       ],
       "data-use": [
-        "[verbatim] \"libre 'Réutilisation' de l’'Information' objet de la présente licence...\""
+        "[verbatim] \"libre 'Réutilisation' de l'Information'\"",
+        "[verbatim] \"informations publiques\""
       ],
       "create-adaptations": [
-        "[verbatim] \"de l’adapter, la modifier, l’extraire et la transformer, pour créer des 'Informations dérivées'\""
+        "[verbatim] \"pour créer des 'Informations dérivées', des produits ou des services\""
       ]
     },
     "conditions": {
       "attribution": [
-        "[verbatim] \"mentionner la paternité de l’'Information' : sa source (au moins le nom du 'Concédant') et la date de dernière mise à jour de l’'Information' réutilisée.\""
+        "[verbatim] \"mentionner la paternité de l'Information' : sa source... et la date de dernière mise à jour\""
       ],
       "non-endorsement": [
-        "[verbatim] \"Cette mention de paternité ne confère aucun caractère officiel à la 'Réutilisation'... ne doit pas suggérer une quelconque reconnaissance ou caution...\""
+        "[verbatim] \"ne doit pas suggérer une quelconque reconnaissance ou caution par le 'Concédant'\""
       ]
     },
     "limitations": {
       "liability": [
-        "[verbatim] \"Il ne peut être tenu pour responsable de toute perte, préjudice ou dommage de quelque sorte causé à des tiers du fait de la 'Réutilisation'.\""
+        "[verbatim] \"Il ne peut être tenu pour responsable de toute perte, préjudice ou dommage\""
       ],
       "warranty": [
-        "[verbatim] \"sans autre garantie expresse ou tacite que celles prévues par la présente licence. L’absence de défauts ou d’erreurs... n’est pas garantie...\""
+        "[verbatim] \"sans autre garantie expresse ou tacite\"",
+        "[verbatim] \"L’absence de défauts ou d’erreurs... n’est pas garantie\""
       ],
       "no-personal-data-guarantee": [
-        "[verbatim] \"L’'Information' peut être librement réutilisée... à condition de respecter le cadre légal relatif à la protection des données à caractère personnel.\""
+        "[verbatim] \"peut contenir des 'Données à caractère personnel'\"",
+        "[verbatim] \"à condition de respecter le cadre légal relatif à la protection des données\""
       ]
     }
   }

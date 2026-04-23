@@ -33,19 +33,18 @@
     "create-adaptations"
   ],
   "conditions": [
-    "attribution",
     "include-copyright",
     "document-changes",
     "same-license",
-    "license-linking",
+    "attribution",
     "non-endorsement",
+    "license-linking",
     "share-alike"
   ],
   "limitations": [
-    "warranty",
-    "liability",
     "trademark-use",
-    "patent-use"
+    "liability",
+    "warranty"
   ],
   "tags": [
     "copyleft:strong",
@@ -60,59 +59,62 @@
   "reasons": {
     "permissions": {
       "commercial-use": [
-        "[verbatim] Section 2(a)(1): 'the Licensor hereby grants You...to exercise the Licensed Rights' (no restriction on commercial use)"
+        "[verbatim] Section 2(a)(1): Licensor grants a worldwide, royalty-free, non-exclusive, irrevocable license",
+        "[inferred] No field-of-use restriction appears; commercial use is not excluded from the broad license grant"
       ],
       "modifications": [
-        "[verbatim] Section 2(a)(1)(B): 'produce, reproduce, and Share Adapted Material'"
+        "[verbatim] Section 2(a)(1)(B): You may \"produce, reproduce, and Share Adapted Material\""
       ],
       "distribution": [
-        "[verbatim] Section 2(a)(1)(A): 'reproduce and Share the Licensed Material, in whole or in part'"
+        "[verbatim] Section 2(a)(1)(A): You may \"reproduce and Share the Licensed Material, in whole or in part\"",
+        "[verbatim] Section 1(k): \"Share\" includes \"distribution, dissemination, communication, or importation\""
       ],
       "private-use": [
-        "[inferred] No restriction on private use; license is worldwide, non-exclusive, irrevocable (Section 2(a)(1))"
+        "[verbatim] Section 2(a)(1): Licensor grants You rights to exercise the Licensed Rights in the Licensed Material",
+        "[inferred] No private-use restriction is stated; the broad grant covers private uses"
       ],
       "data-use": [
-        "[verbatim] Section 4(a): 'grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database'"
+        "[verbatim] Section 4(a): grants the right to \"extract, reuse, reproduce, and Share\" database contents"
       ],
       "create-adaptations": [
-        "[verbatim] Section 2(a)(1)(B): 'produce, reproduce, and Share Adapted Material'"
+        "[verbatim] Section 2(a)(1)(B): You may \"produce, reproduce, and Share Adapted Material\""
       ]
     },
     "conditions": {
-      "attribution": [
-        "[verbatim] Section 3(a)(1): 'If You Share the Licensed Material...You must:...identification of the creator(s)...'"
-      ],
       "include-copyright": [
-        "[verbatim] Section 3(a)(1)(A)(ii): 'a copyright notice'"
+        "[verbatim] Section 3(a)(1)(A)(ii): If You Share, You must retain \"a copyright notice\""
       ],
       "document-changes": [
-        "[verbatim] Section 3(a)(1)(B): 'indicate if You modified the Licensed Material and retain an indication of any previous modifications'"
+        "[verbatim] Section 3(a)(1)(B): You must \"indicate if You modified\" and retain prior modification indications"
       ],
       "same-license": [
-        "[verbatim] Section 3(b)(1): 'The Adapter’s License You apply must be a Creative Commons license with the same License Elements...'"
+        "[verbatim] Section 3(b)(1): Adapter's License must be CC with the same License Elements, this version or later",
+        "[verbatim] Section 3(b)(1): or it must be \"a BY-SA Compatible License\""
       ],
-      "license-linking": [
-        "[verbatim] Section 3(a)(1)(C): 'include the text of, or the URI or hyperlink to, this Public License'"
+      "attribution": [
+        "[verbatim] Section 3(a)(1)(A)(i): retain identification of the creator(s) and others designated for attribution"
       ],
       "non-endorsement": [
-        "[verbatim] Section 2(a)(6): 'Nothing...may be construed as permission to assert or imply that You are...endorsed...by, the Licensor'"
+        "[verbatim] Section 2(a)(6): no permission to assert or imply You are \"sponsored, endorsed\" by the Licensor"
+      ],
+      "license-linking": [
+        "[verbatim] Section 3(a)(1)(C): include the text of, or the URI or hyperlink to, this Public License",
+        "[verbatim] Section 3(b)(2): include the text of, or the URI or hyperlink to, the Adapter's License"
       ],
       "share-alike": [
-        "[verbatim] Section 3(b): 'if You Share Adapted Material...the following conditions also apply...must be a Creative Commons license with the same License Elements'"
+        "[verbatim] Section 1(g): \"The License Elements of this Public License are Attribution and ShareAlike\"",
+        "[verbatim] Section 3(b): if You Share Adapted Material, additional ShareAlike conditions apply"
       ]
     },
     "limitations": {
-      "warranty": [
-        "[verbatim] Section 5(a): 'the Licensor offers the Licensed Material as-is...makes no representations or warranties of any kind'"
+      "trademark-use": [
+        "[verbatim] Section 2(b)(2): \"Patent and trademark rights are not licensed under this Public License.\""
       ],
       "liability": [
-        "[verbatim] Section 5(b): 'in no event will the Licensor be liable to You on any legal theory...'"
+        "[verbatim] Section 5(b): \"in no event will the Licensor be liable to You on any legal theory\""
       ],
-      "trademark-use": [
-        "[verbatim] Final paragraph: 'Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark...'"
-      ],
-      "patent-use": [
-        "[verbatim] Section 2(b)(2): 'Patent and trademark rights are not licensed under this Public License.'"
+      "warranty": [
+        "[verbatim] Section 5(a): Licensor offers the material \"as-is and as-available\" and makes no warranties"
       ]
     }
   }

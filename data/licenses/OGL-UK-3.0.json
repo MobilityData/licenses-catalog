@@ -35,19 +35,20 @@
   ],
   "conditions": [
     "attribution",
-    "license-linking",
-    "non-endorsement"
+    "non-endorsement",
+    "license-linking"
   ],
   "limitations": [
     "trademark-use",
     "liability",
     "warranty",
-    "no-personal-data-guarantee",
-    "license-incompatibility"
+    "no-personal-data-guarantee"
   ],
   "tags": [
+    "copyleft:none",
     "domain:content",
     "domain:data",
+    "domain:mixed",
     "license:government-open-license",
     "notes:attribution-required",
     "notes:government-open-license",
@@ -56,19 +57,22 @@
   "reasons": {
     "permissions": {
       "commercial-use": [
-        "[verbatim] \"exploit the Information commercially and non-commercially for example, by combining it with other Information, or by including it in your own product\""
+        "[verbatim] \"exploit the Information commercially and non-commercially\""
       ],
       "modifications": [
-        "[verbatim] \"adapt the Information;\""
+        "[verbatim] \"adapt the Information;\"",
+        "[verbatim] \"Use\" includes \"adapting, modifying as may be technically necessary\""
       ],
       "distribution": [
         "[verbatim] \"copy, publish, distribute and transmit the Information;\""
       ],
       "private-use": [
-        "[verbatim] \"use and re-use the Information that is available under this licence freely and flexibly\""
+        "[verbatim] \"The Licensor grants you a worldwide, royalty-free, perpetual, non-exclusive licence to use the Information\"",
+        "[inferred] Broad licence to \"use\" the Information contains no restriction excluding private use"
       ],
       "data-use": [
-        "[verbatim] \"'Information' means information protected by copyright or by database right (for example, ... data ...) offered for use under the terms of this licence.\""
+        "[verbatim] \"Information\" means information protected by copyright or by database right",
+        "[verbatim] \"Information\" includes \"content, data and source code\""
       ],
       "create-adaptations": [
         "[verbatim] \"adapt the Information;\""
@@ -76,30 +80,32 @@
     },
     "conditions": {
       "attribution": [
-        "[verbatim] \"acknowledge the source of the Information in your product or application by including or linking to any attribution statement specified by the Information Provider(s)\""
+        "[verbatim] \"acknowledge the source of the Information... by including or linking to any attribution statement\"",
+        "[verbatim] \"you must use the following: Contains public sector information licensed under the Open Government Licence v3.0.\""
+      ],
+      "non-endorsement": [
+        "[verbatim] \"does not grant you any right to use the Information in a way that suggests any official status\"",
+        "[verbatim] \"or that the Information Provider and/or Licensor endorse you or your use of the Information\""
       ],
       "license-linking": [
         "[verbatim] \"where possible, provide a link to this licence;\""
-      ],
-      "non-endorsement": [
-        "[verbatim] \"This licence does not grant you any right to use the Information in a way that suggests any official status or that the Information Provider and/or Licensor endorse you\""
       ]
     },
     "limitations": {
       "trademark-use": [
-        "[verbatim] \"departmental or public sector organisation logos, crests and the Royal Arms except where they form an integral part of a document or dataset; ... military insignia;\""
+        "[verbatim] \"This licence does not cover... trade marks\"",
+        "[verbatim] \"does not cover: departmental or public sector organisation logos, crests and the Royal Arms\""
       ],
       "liability": [
-        "[verbatim] \"The Information Provider and/or Licensor are not liable for any errors or omissions in the Information and shall not be liable for any loss, injury or damage of any kind caused by its use.\""
+        "[verbatim] \"The Information Provider and/or Licensor are not liable for any errors or omissions\"",
+        "[verbatim] \"shall not be liable for any loss, injury or damage of any kind caused by its use\""
       ],
       "warranty": [
-        "[verbatim] \"The Information is licensed 'as is' and the Information Provider and/or Licensor excludes all representations, warranties, obligations and liabilities\""
+        "[verbatim] \"The Information is licensed 'as is'\"",
+        "[verbatim] \"excludes all representations, warranties, obligations and liabilities\""
       ],
       "no-personal-data-guarantee": [
         "[verbatim] \"This licence does not cover: personal data in the Information;\""
-      ],
-      "license-incompatibility": [
-        "[verbatim] \"third party rights the Information Provider is not authorised to license; other intellectual property rights, including patents, trade marks, and design rights;\""
       ]
     }
   }

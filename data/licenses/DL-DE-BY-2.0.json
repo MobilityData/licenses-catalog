@@ -38,28 +38,30 @@
   ],
   "limitations": [],
   "tags": [
+    "copyleft:none",
     "domain:data",
     "domain:software",
     "license:government-open-license",
     "license:open-source",
-    "notes:attribution-required"
+    "notes:attribution-required",
+    "notes:government-open-license"
   ],
   "reasons": {
     "permissions": {
       "commercial-use": [
-        "[verbatim] \"The data and meta-data provided may, for commercial and non-commercial use, in particular...\""
+        "[verbatim] \"The data and meta-data provided may, for commercial and non-commercial use\""
       ],
       "modifications": [
-        "[verbatim] \"be...altered, processed...\""
+        "[verbatim] \"be copied, printed, presented, altered, processed\""
       ],
       "distribution": [
-        "[verbatim] \"be...transmitted to third parties\""
+        "[verbatim] \"transmitted to third parties\""
       ],
       "private-use": [
-        "[verbatim] \"be integrated in internal...business processes...in non-public electronic networks\""
+        "[verbatim] \"be integrated in internal... business processes... in... non-public electronic networks\""
       ],
       "data-use": [
-        "[verbatim] \"The data and meta-data provided may...be copied, printed, presented...\""
+        "[verbatim] \"The data and meta-data provided may... be copied, printed, presented\""
       ],
       "create-adaptations": [
         "[verbatim] \"be merged with own data and with the data of others and be combined to form new and independent datasets\""
@@ -67,13 +69,15 @@
     },
     "conditions": {
       "attribution": [
-        "[verbatim] \"the name of the provider\" must be included in the source note"
+        "[verbatim] \"The user must ensure that the source note contains... the name of the provider\"",
+        "[verbatim] \"a reference to the dataset (URI)\""
       ],
       "mark-changes": [
         "[verbatim] \"Changes, editing, new designs or other amendments must be marked as such in the source note.\""
       ],
       "license-linking": [
-        "[verbatim] \"the annotation 'Data licence Germany – attribution – Version 2.0'...referring to the licence text available at www.govdata.de/dl-de/by-2-0\""
+        "[verbatim] \"the annotation \\\"Data licence Germany – attribution – Version 2.0\\\"... referring to the licence text\"",
+        "[verbatim] \"available at www.govdata.de/dl-de/by-2-0\""
       ]
     },
     "limitations": {}

@@ -36,24 +36,24 @@
   "categorized": true,
   "permissions": [
     "commercial-use",
-    "distribution",
     "modifications",
+    "distribution",
     "private-use",
     "data-use",
     "create-adaptations"
   ],
   "conditions": [
     "include-copyright",
-    "attribution",
+    "disclose-source",
     "same-license",
-    "disclose-source"
+    "attribution",
+    "share-alike"
   ],
   "limitations": [
+    "trademark-use",
     "liability",
     "warranty",
-    "trademark-use",
-    "license-incompatibility",
-    "database-rights-disclaimed"
+    "license-incompatibility"
   ],
   "tags": [
     "copyleft:strong",
@@ -67,53 +67,56 @@
   "reasons": {
     "permissions": {
       "commercial-use": [
-        "[verbatim] 3.1: 'These rights explicitly include commercial use, and do not exclude any field of endeavour.'"
-      ],
-      "distribution": [
-        "[verbatim] 3.1(e): 'Distribution, communication, display, lending, making available, or performance to the public by any means and in any form...'"
+        "[verbatim] 3.1: rights \"explicitly include commercial use, and do not exclude any field of endeavour.\""
       ],
       "modifications": [
-        "[verbatim] 3.1(b): 'Creation of Derivative Databases;'"
+        "[verbatim] 3.1(b): \"Creation of Derivative Databases;\"",
+        "[verbatim] Definition of \"Derivative Database\" includes \"adaptation, arrangement, modification\""
+      ],
+      "distribution": [
+        "[verbatim] 3.1(e): \"Distribution, communication, display, lending, making available... to the public\""
       ],
       "private-use": [
-        "[verbatim] 6.1(a): 'Extraction of Contents from non-electronic Databases for private purposes...'"
+        "[inferred] 3.1 grants a broad license to \"Use the Database\" with no private-use restriction."
       ],
       "data-use": [
-        "[verbatim] 3.1(a): 'Extraction and Re-utilisation of the whole or a Substantial part of the Contents;'"
+        "[verbatim] 3.1(a): \"Extraction and Re-utilisation of the whole or a Substantial part of the Contents;\""
       ],
       "create-adaptations": [
-        "[verbatim] 3.1(b): 'Creation of Derivative Databases;'"
+        "[verbatim] Definition of \"Derivative Database\" includes \"translation, adaptation, arrangement\"",
+        "[verbatim] 3.1(b): \"Creation of Derivative Databases;\""
       ]
     },
     "conditions": {
       "include-copyright": [
-        "[verbatim] 4.2(c): 'Keep intact any copyright or Database Right notices and notices that refer to this License.'"
-      ],
-      "attribution": [
-        "[verbatim] 4.3: 'You must include a notice... to make any Person... aware that Content was obtained from the Database... and that it is available under this License.'"
-      ],
-      "same-license": [
-        "[verbatim] 4.4(a): 'Any Derivative Database that You Publicly Use must be only under the terms of: i. This License...'"
+        "[verbatim] 4.2(c): \"Keep intact any copyright or Database Right notices and notices that refer to this License.\""
       ],
       "disclose-source": [
-        "[verbatim] 4.6: 'You must also offer... a copy in a machine readable form of: a. The entire Derivative Database; or b. A file containing all of the alterations...'"
+        "[verbatim] 4.6: must offer recipients a machine readable copy of the Derivative Database or alteration file."
+      ],
+      "same-license": [
+        "[verbatim] 4.4(a): Derivative Database publicly used must be only under this License, later version, or compatible license."
+      ],
+      "attribution": [
+        "[verbatim] 4.3: for Publicly Used Produced Work, include notice that content was obtained from the Database."
+      ],
+      "share-alike": [
+        "[verbatim] 4.4 heading: \"Share alike.\"",
+        "[verbatim] 4.4(a): publicly used Derivative Database must be under this License, later version, or compatible license."
       ]
     },
     "limitations": {
+      "trademark-use": [
+        "[verbatim] 2.3(c): \"This License does not cover any trademarks associated with the Database.\""
+      ],
       "liability": [
-        "[verbatim] 8.1: 'Licensor is not liable for, and expressly excludes, all liability for loss or damage however and whenever caused...'"
+        "[verbatim] 8.1: \"Licensor is not liable for, and expressly excludes, all liability for loss or damage...\""
       ],
       "warranty": [
-        "[verbatim] 7.1: 'The Database is licensed by the Licensor \"as is\" and without any warranty of any kind...'"
-      ],
-      "trademark-use": [
-        "[verbatim] 2.3(c): 'This License does not cover any trademarks associated with the Database.'"
+        "[verbatim] 7.1: Database is licensed \"as is\" and \"without any warranty of any kind\"."
       ],
       "license-incompatibility": [
-        "[verbatim] 4.4(d): 'You must not add Contents to Derivative Databases... that are incompatible with the rights granted under this License.'"
-      ],
-      "database-rights-disclaimed": [
-        "[verbatim] 2.2(b): 'Database Rights only extend to the Extraction and Re-utilisation of the whole or a Substantial part of the Contents.'"
+        "[verbatim] 4.4(d): \"You must not add Contents... that are incompatible with the rights granted under this License.\""
       ]
     }
   }

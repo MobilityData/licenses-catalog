@@ -30,21 +30,20 @@
     "distribution",
     "private-use",
     "data-use",
-    "text-and-data-mining",
     "create-adaptations"
   ],
   "conditions": [],
   "limitations": [
     "trademark-use",
-    "patent-use",
-    "liability",
-    "warranty"
+    "warranty",
+    "liability"
   ],
   "tags": [
     "copyleft:none",
     "domain:content",
     "domain:data",
     "domain:mixed",
+    "family:CC",
     "license:creative-commons",
     "license:public-domain",
     "spdx:fsf-free"
@@ -52,40 +51,40 @@
   "reasons": {
     "permissions": {
       "commercial-use": [
-        "[verbatim] \"for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes\""
+        "[verbatim] 2: rights are waived \"for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes\"",
+        "[verbatim] Statement of Purpose: public may reuse and redistribute \"for any purposes, including without limitation commercial purposes\""
       ],
       "modifications": [
-        "[verbatim] \"build upon, modify, incorporate in other works, reuse and redistribute as freely as possible in any form whatsoever\""
+        "[verbatim] Statement of Purpose: the public may \"build upon, modify, incorporate in other works\"",
+        "[verbatim] 1(i): Copyright and Related Rights include \"the right to reproduce, adapt, distribute... and translate a Work\""
       ],
       "distribution": [
-        "[verbatim] \"redistribute as freely as possible in any form whatsoever and for any purposes\""
+        "[verbatim] Statement of Purpose: the public may \"reuse and redistribute as freely as possible in any form whatsoever\"",
+        "[verbatim] 1(i): rights include \"the right to reproduce, adapt, distribute, perform, display, communicate\""
       ],
       "private-use": [
-        "[verbatim] \"for any purpose whatsoever\""
+        "[verbatim] 2: rights are waived \"for any purpose whatsoever\"",
+        "[inferred] \"Any purpose whatsoever\" includes private uses; no clause excludes personal or internal use"
       ],
       "data-use": [
-        "[verbatim] \"rights protecting the extraction, dissemination, use and reuse of data in a Work\""
-      ],
-      "text-and-data-mining": [
-        "[verbatim] \"rights protecting the extraction, dissemination, use and reuse of data in a Work\""
+        "[verbatim] 1(v): Copyright and Related Rights include \"rights protecting the extraction, dissemination, use and reuse of data\"",
+        "[verbatim] 1(vi): Copyright and Related Rights include \"database rights\""
       ],
       "create-adaptations": [
-        "[verbatim] \"build upon, modify, incorporate in other works\""
+        "[verbatim] Statement of Purpose: the public may \"build upon, modify, incorporate in other works\"",
+        "[verbatim] 1(i): rights include \"the right to reproduce, adapt... and translate a Work\""
       ]
     },
     "conditions": {},
     "limitations": {
       "trademark-use": [
-        "[verbatim] \"No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document.\""
-      ],
-      "patent-use": [
-        "[verbatim] \"No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document.\""
-      ],
-      "liability": [
-        "[verbatim] \"disclaims liability for damages resulting from the use of this document or the information or works provided hereunder.\""
+        "[verbatim] 4(a): \"No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected\""
       ],
       "warranty": [
-        "[verbatim] \"makes no representations or warranties of any kind concerning the Work, express, implied, statutory or otherwise\""
+        "[verbatim] 4(b): \"Affirmer offers the Work as-is and makes no representations or warranties of any kind\""
+      ],
+      "liability": [
+        "[verbatim] Intro: \"Creative Commons... disclaims liability for damages resulting from the use of this document or the information or works\""
       ]
     }
   }
