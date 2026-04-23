@@ -28,20 +28,66 @@
     "commercial-use",
     "modifications",
     "distribution",
-    "private-use"
+    "private-use",
+    "data-use",
+    "text-and-data-mining",
+    "create-adaptations"
   ],
   "conditions": [],
   "limitations": [
-    "liability",
     "trademark-use",
     "patent-use",
+    "liability",
     "warranty"
   ],
   "tags": [
-    "spdx:fsf-free",
-    "license:public-domain",
     "copyleft:none",
     "domain:content",
-    "domain:data"
-  ]
+    "domain:data",
+    "domain:documentation",
+    "domain:mixed",
+    "license:creative-commons",
+    "license:public-domain",
+    "spdx:fsf-free"
+  ],
+  "reasons": {
+    "permissions": {
+      "commercial-use": [
+        "\"for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes\""
+      ],
+      "modifications": [
+        "\"build upon, modify, incorporate in other works, reuse and redistribute as freely as possible in any form whatsoever\""
+      ],
+      "distribution": [
+        "\"redistribute as freely as possible in any form whatsoever and for any purposes\""
+      ],
+      "private-use": [
+        "\"for any purpose whatsoever\""
+      ],
+      "data-use": [
+        "\"rights protecting the extraction, dissemination, use and reuse of data in a Work\""
+      ],
+      "text-and-data-mining": [
+        "\"rights protecting the extraction, dissemination, use and reuse of data in a Work\""
+      ],
+      "create-adaptations": [
+        "\"build upon, modify, incorporate in other works\""
+      ]
+    },
+    "conditions": {},
+    "limitations": {
+      "trademark-use": [
+        "\"No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document.\""
+      ],
+      "patent-use": [
+        "\"No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected by this document.\""
+      ],
+      "liability": [
+        "\"disclaims liability for damages resulting from the use of this document or the information or works provided hereunder.\""
+      ],
+      "warranty": [
+        "\"makes no representations or warranties of any kind concerning the Work, express, implied, statutory or otherwise\""
+      ]
+    }
+  }
 }

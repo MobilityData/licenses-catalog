@@ -28,26 +28,92 @@
     "commercial-use",
     "modifications",
     "distribution",
-    "private-use"
+    "private-use",
+    "data-use",
+    "create-adaptations"
   ],
   "conditions": [
+    "attribution",
     "include-copyright",
     "document-changes",
-    "same-license"
+    "same-license",
+    "license-linking",
+    "non-endorsement",
+    "share-alike"
   ],
   "limitations": [
+    "warranty",
     "liability",
     "trademark-use",
-    "patent-use",
-    "warranty"
+    "patent-use"
   ],
   "tags": [
-    "spdx:fsf-free",
-    "license:creative-commons",
-    "family:CC",
+    "copyleft:strong",
     "domain:content",
+    "domain:data",
+    "family:CC",
+    "license:creative-commons",
     "notes:attribution-required",
     "notes:share-alike",
-    "domain:data"
-  ]
+    "spdx:fsf-free"
+  ],
+  "reasons": {
+    "permissions": {
+      "commercial-use": [
+        "Section 2(a)(1): 'the Licensor hereby grants You...to exercise the Licensed Rights' (no restriction on commercial use)"
+      ],
+      "modifications": [
+        "Section 2(a)(1)(B): 'produce, reproduce, and Share Adapted Material'"
+      ],
+      "distribution": [
+        "Section 2(a)(1)(A): 'reproduce and Share the Licensed Material, in whole or in part'"
+      ],
+      "private-use": [
+        "No restriction on private use; license is worldwide, non-exclusive, irrevocable (Section 2(a)(1))"
+      ],
+      "data-use": [
+        "Section 4(a): 'grants You the right to extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database'"
+      ],
+      "create-adaptations": [
+        "Section 2(a)(1)(B): 'produce, reproduce, and Share Adapted Material'"
+      ]
+    },
+    "conditions": {
+      "attribution": [
+        "Section 3(a)(1): 'If You Share the Licensed Material...You must:...identification of the creator(s)...'"
+      ],
+      "include-copyright": [
+        "Section 3(a)(1)(A)(ii): 'a copyright notice'"
+      ],
+      "document-changes": [
+        "Section 3(a)(1)(B): 'indicate if You modified the Licensed Material and retain an indication of any previous modifications'"
+      ],
+      "same-license": [
+        "Section 3(b)(1): 'The Adapter’s License You apply must be a Creative Commons license with the same License Elements...'"
+      ],
+      "license-linking": [
+        "Section 3(a)(1)(C): 'include the text of, or the URI or hyperlink to, this Public License'"
+      ],
+      "non-endorsement": [
+        "Section 2(a)(6): 'Nothing...may be construed as permission to assert or imply that You are...endorsed...by, the Licensor'"
+      ],
+      "share-alike": [
+        "Section 3(b): 'if You Share Adapted Material...the following conditions also apply...must be a Creative Commons license with the same License Elements'"
+      ]
+    },
+    "limitations": {
+      "warranty": [
+        "Section 5(a): 'the Licensor offers the Licensed Material as-is...makes no representations or warranties of any kind'"
+      ],
+      "liability": [
+        "Section 5(b): 'in no event will the Licensor be liable to You on any legal theory...'"
+      ],
+      "trademark-use": [
+        "Final paragraph: 'Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark...'"
+      ],
+      "patent-use": [
+        "Section 2(b)(2): 'Patent and trademark rights are not licensed under this Public License.'"
+      ]
+    }
+  }
 }
