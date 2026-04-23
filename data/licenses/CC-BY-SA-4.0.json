@@ -28,26 +28,94 @@
     "commercial-use",
     "modifications",
     "distribution",
-    "private-use"
+    "private-use",
+    "data-use",
+    "create-adaptations"
   ],
   "conditions": [
     "include-copyright",
     "document-changes",
-    "same-license"
+    "same-license",
+    "attribution",
+    "non-endorsement",
+    "license-linking",
+    "share-alike"
   ],
   "limitations": [
-    "liability",
     "trademark-use",
-    "patent-use",
+    "liability",
     "warranty"
   ],
   "tags": [
-    "spdx:fsf-free",
-    "license:creative-commons",
-    "family:CC",
+    "copyleft:strong",
     "domain:content",
+    "domain:data",
+    "family:CC",
+    "license:creative-commons",
     "notes:attribution-required",
     "notes:share-alike",
-    "domain:data"
-  ]
+    "spdx:fsf-free"
+  ],
+  "reasons": {
+    "permissions": {
+      "commercial-use": [
+        "[verbatim] Section 2(a)(1): Licensor grants a worldwide, royalty-free, non-exclusive, irrevocable license",
+        "[inferred] No field-of-use restriction appears; commercial use is not excluded from the broad license grant"
+      ],
+      "modifications": [
+        "[verbatim] Section 2(a)(1)(B): You may \"produce, reproduce, and Share Adapted Material\""
+      ],
+      "distribution": [
+        "[verbatim] Section 2(a)(1)(A): You may \"reproduce and Share the Licensed Material, in whole or in part\"",
+        "[verbatim] Section 1(k): \"Share\" includes \"distribution, dissemination, communication, or importation\""
+      ],
+      "private-use": [
+        "[verbatim] Section 2(a)(1): Licensor grants You rights to exercise the Licensed Rights in the Licensed Material",
+        "[inferred] No private-use restriction is stated; the broad grant covers private uses"
+      ],
+      "data-use": [
+        "[verbatim] Section 4(a): grants the right to \"extract, reuse, reproduce, and Share\" database contents"
+      ],
+      "create-adaptations": [
+        "[verbatim] Section 2(a)(1)(B): You may \"produce, reproduce, and Share Adapted Material\""
+      ]
+    },
+    "conditions": {
+      "include-copyright": [
+        "[verbatim] Section 3(a)(1)(A)(ii): If You Share, You must retain \"a copyright notice\""
+      ],
+      "document-changes": [
+        "[verbatim] Section 3(a)(1)(B): You must \"indicate if You modified\" and retain prior modification indications"
+      ],
+      "same-license": [
+        "[verbatim] Section 3(b)(1): Adapter's License must be CC with the same License Elements, this version or later",
+        "[verbatim] Section 3(b)(1): or it must be \"a BY-SA Compatible License\""
+      ],
+      "attribution": [
+        "[verbatim] Section 3(a)(1)(A)(i): retain identification of the creator(s) and others designated for attribution"
+      ],
+      "non-endorsement": [
+        "[verbatim] Section 2(a)(6): no permission to assert or imply You are \"sponsored, endorsed\" by the Licensor"
+      ],
+      "license-linking": [
+        "[verbatim] Section 3(a)(1)(C): include the text of, or the URI or hyperlink to, this Public License",
+        "[verbatim] Section 3(b)(2): include the text of, or the URI or hyperlink to, the Adapter's License"
+      ],
+      "share-alike": [
+        "[verbatim] Section 1(g): \"The License Elements of this Public License are Attribution and ShareAlike\"",
+        "[verbatim] Section 3(b): if You Share Adapted Material, additional ShareAlike conditions apply"
+      ]
+    },
+    "limitations": {
+      "trademark-use": [
+        "[verbatim] Section 2(b)(2): \"Patent and trademark rights are not licensed under this Public License.\""
+      ],
+      "liability": [
+        "[verbatim] Section 5(b): \"in no event will the Licensor be liable to You on any legal theory\""
+      ],
+      "warranty": [
+        "[verbatim] Section 5(a): Licensor offers the material \"as-is and as-available\" and makes no warranties"
+      ]
+    }
+  }
 }

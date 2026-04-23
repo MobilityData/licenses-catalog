@@ -56,7 +56,7 @@ set -euo pipefail
 #
 #   --model MODEL_NAME
 #       LLM model name to use.
-#       Default: gpt-4.1
+#       Default: gpt-5.4
 #
 #   --credentials-file PATH
 #       Path to a "dcredentials"-style file containing OPENAI_API_KEY.

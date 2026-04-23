@@ -46,3 +46,42 @@ Each license includes a list of `rules` declared in `data/rules.json`. These are
 | `warranty`                   | No warranty                | The license explicitly states that no warranty is provided.                     |
 | `no-personal-data-guarantee` | No personal data guarantee | The license disclaims the presence or legality of personal data in the content. |
 | `database-rights-disclaimed` | Database rights disclaimed | The license explicitly waives or disclaims sui generis database rights.         |
+
+---
+
+## Classification Evidence (`reasons`)
+
+Every selected rule in `permissions`, `conditions`, and `limitations` is accompanied by an evidence object stored under the `reasons` key in each license JSON file. This provides traceability for each classification decision.
+
+```json
+"reasons": {
+  "permissions": {
+    "commercial-use": ["[verbatim] \"to use, copy, modify, merge, publish... and/or sell copies\""]
+  },
+  "conditions": {
+    "include-copyright": ["[verbatim] \"The above copyright notice... shall be included in all copies\""]
+  },
+  "limitations": {
+    "warranty": ["[verbatim] \"THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND\""]
+  }
+}
+```
+
+### Evidence Prefixes
+
+Each evidence string must begin with one of two prefixes that indicate how the rule was derived:
+
+| Prefix | Meaning | When to use |
+| ------------ | ------- | ----------- |
+| `[verbatim]` | Directly quotes or tightly paraphrases a specific clause or section in the license text. | A clear statement in the license explicitly grants, requires, or restricts something. |
+| `[inferred]` | The rule is implied rather than stated (e.g., a broad grant with no contrary restriction, or the absence of a prohibition). | No single clause names the rule directly; the classification follows from the overall grant or from the absence of a restriction. |
+
+If a single thought combines a quote with an inference, it should be split into two evidence strings — one `[verbatim]` for the supporting clause and one `[inferred]` for the conclusion drawn from it.
+
+### Reviewing Evidence
+
+When reviewing a classification pull request:
+
+- **`[verbatim]` entries** can be verified directly against the license text.
+- **`[inferred]` entries** require judgment: confirm that the license text truly contains no contrary restriction and that the inference is reasonable.
+- Any rule supported only by `[inferred]` evidence warrants extra scrutiny before approval.

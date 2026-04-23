@@ -65,7 +65,8 @@ Return ONLY a JSON object with EXACT keys:
 }
 
 Rules:
-- Each evidence string ≤160 characters; quote a short snippet or reference a clause/section.
-- Evidence must be verbatim or tight paraphrase; no external fabrication.
+- Each evidence string ≤160 characters **excluding** the prefix; every string must begin with `[verbatim]` (direct quote or clause paraphrase) or `[inferred]` (rule implied by broad grant / absence of restriction).
+- If a thought mixes a quote with an inference, split into two strings: one `[verbatim]`, one `[inferred]`.
+- Evidence must be grounded in the provided text; no external fabrication.
 - Omit any rule you are not reasonably certain about.
 - Tags are optional; include only if strongly supported by the text or explicit metadata.
