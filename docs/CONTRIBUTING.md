@@ -35,6 +35,7 @@ You’re welcome to propose the addition of a new license if it meets the follow
 3. **Ensure accuracy**
    - Match license text/metadata with the official SPDX entry
    - Provide examples or references in your pull request (e.g., popular repos using the license)
+   - When reviewing generated `reasons`, check that `[verbatim]` evidence can be located verbatim in the license text, and that `[inferred]` entries are reasonable (see [`docs/RULES.md`](RULES.md#evidence-prefixes))
 
 ---
 
