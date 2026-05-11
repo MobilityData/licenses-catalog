@@ -42,6 +42,7 @@ Each license includes a list of `rules` declared in `data/rules.json`. These are
 | Name                         | Label                      | Description                                                                     |
 | ---------------------------- | -------------------------- | ------------------------------------------------------------------------------- |
 | `trademark-use`              | Trademark use              | The license does not grant rights to use trademarks.                            |
+| `patent-use`                 | Patent use                 | The license explicitly excludes or does not waive patent rights.                |
 | `liability`                  | Liability disclaimer       | The license includes a limitation of liability.                                 |
 | `warranty`                   | No warranty                | The license explicitly states that no warranty is provided.                     |
 | `no-personal-data-guarantee` | No personal data guarantee | The license disclaims the presence or legality of personal data in the content. |
