@@ -125,6 +125,11 @@
       "description": "The license does not grant rights to use trademarks."
     },
     {
+      "name": "patent-use",
+      "label": "Patent use",
+      "description": "The license explicitly excludes or does not waive patent rights."
+    },
+    {
       "name": "liability",
       "label": "Liability disclaimer",
       "description": "The license includes a limitation of liability."

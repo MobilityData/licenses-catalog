@@ -28,20 +28,67 @@
     "commercial-use",
     "modifications",
     "distribution",
-    "private-use"
+    "private-use",
+    "data-use",
+    "create-adaptations"
   ],
   "conditions": [],
   "limitations": [
-    "liability",
     "trademark-use",
     "patent-use",
-    "warranty"
+    "warranty",
+    "liability"
   ],
   "tags": [
-    "spdx:fsf-free",
-    "license:public-domain",
     "copyleft:none",
     "domain:content",
-    "domain:data"
-  ]
+    "domain:data",
+    "family:CC",
+    "license:creative-commons",
+    "license:public-domain",
+    "spdx:fsf-free"
+  ],
+  "reasons": {
+    "permissions": {
+      "commercial-use": [
+        "[verbatim] 2: rights are waived \"for any purpose whatsoever, including without limitation commercial, advertising or promotional purposes\"",
+        "[verbatim] Statement of Purpose: public may reuse and redistribute \"for any purposes, including without limitation commercial purposes\""
+      ],
+      "modifications": [
+        "[verbatim] Statement of Purpose: the public may \"build upon, modify, incorporate in other works\"",
+        "[verbatim] 1(i): rights include \"the right to reproduce, adapt, distribute... and translate a Work\""
+      ],
+      "distribution": [
+        "[verbatim] Statement of Purpose: the public may \"reuse and redistribute as freely as possible in any form whatsoever\"",
+        "[verbatim] 1(i): rights include \"the right to reproduce, adapt, distribute, perform, display, communicate\""
+      ],
+      "private-use": [
+        "[verbatim] 2: rights are waived \"for any purpose whatsoever\"",
+        "[inferred] \"Any purpose whatsoever\" includes private use; no clause excludes personal or internal use"
+      ],
+      "data-use": [
+        "[verbatim] 1(v): rights include \"the extraction, dissemination, use and reuse of data in a Work\"",
+        "[verbatim] 1(vi): Copyright and Related Rights include \"database rights\""
+      ],
+      "create-adaptations": [
+        "[verbatim] Statement of Purpose: the public may \"build upon, modify, incorporate in other works\"",
+        "[verbatim] 1(i): rights include \"the right to reproduce, adapt... and translate a Work\""
+      ]
+    },
+    "conditions": {},
+    "limitations": {
+      "trademark-use": [
+        "[verbatim] 4(a): \"No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected\""
+      ],
+      "patent-use": [
+        "[verbatim] 4(a): \"No trademark or patent rights held by Affirmer are waived, abandoned, surrendered, licensed or otherwise affected\""
+      ],
+      "warranty": [
+        "[verbatim] 4(b): \"Affirmer offers the Work as-is and makes no representations or warranties of any kind concerning the Work\""
+      ],
+      "liability": [
+        "[verbatim] Intro: \"Creative Commons... DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM THE USE OF THIS DOCUMENT\""
+      ]
+    }
+  }
 }
