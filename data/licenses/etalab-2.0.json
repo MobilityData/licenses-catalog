@@ -49,11 +49,11 @@
   ],
   "limitations": [
     "liability",
-    "warranty",
-    "no-personal-data-guarantee"
+    "warranty"
   ],
   "tags": [
     "copyleft:none",
+    "copyleft:permissive",
     "domain:content",
     "domain:data",
     "license:government-open-license",
@@ -74,22 +74,23 @@
         "[verbatim] \"de la communiquer, la diffuser, la redistribuer, la publier et la transmettre\""
       ],
       "private-use": [
-        "[verbatim] \"à des fins commerciales ou non\""
+        "[inferred] Broad right of libre \"Réutilisation\" for commercial or non-commercial purposes includes private use"
       ],
       "data-use": [
-        "[verbatim] \"libre 'Réutilisation' de l'Information'\"",
-        "[verbatim] \"informations publiques\""
+        "[verbatim] \"libre « Réutilisation » de l’« Information »\"",
+        "[verbatim] \"informations publiques\"",
+        "[verbatim] \"droit sui generis des producteurs de bases de données\""
       ],
       "create-adaptations": [
-        "[verbatim] \"pour créer des 'Informations dérivées', des produits ou des services\""
+        "[verbatim] \"pour créer des « Informations dérivées », des produits ou des services\""
       ]
     },
     "conditions": {
       "attribution": [
-        "[verbatim] \"mentionner la paternité de l'Information' : sa source... et la date de dernière mise à jour\""
+        "[verbatim] \"mentionner la paternité de l’« Information » : sa source... et la date de dernière mise à jour\""
       ],
       "non-endorsement": [
-        "[verbatim] \"ne doit pas suggérer une quelconque reconnaissance ou caution par le 'Concédant'\""
+        "[verbatim] \"ne doit pas suggérer une quelconque reconnaissance ou caution par le « Concédant »\""
       ]
     },
     "limitations": {
@@ -99,10 +100,6 @@
       "warranty": [
         "[verbatim] \"sans autre garantie expresse ou tacite\"",
         "[verbatim] \"L’absence de défauts ou d’erreurs... n’est pas garantie\""
-      ],
-      "no-personal-data-guarantee": [
-        "[verbatim] \"peut contenir des 'Données à caractère personnel'\"",
-        "[verbatim] \"à condition de respecter le cadre légal relatif à la protection des données\""
       ]
     }
   }
