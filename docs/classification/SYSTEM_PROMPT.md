@@ -155,7 +155,7 @@ Input: Creative Commons Attribution-NoDerivs 2.0. Grants worldwide, royalty-free
   "permissions": ["commercial-use", "distribution", "private-use"],
   "conditions": ["include-copyright", "attribution", "license-linking"],
   "limitations": ["trademark-use", "liability", "warranty"],
-  "tags": ["copyleft:none", "domain:content", "family:CC", "license:creative-commons", "notes:attribution-required"],
+  "tags": ["copyleft:none", "domain:content", "family:CC", "license:creative-commons", "notes:attribution-required", "notes:no-derivatives"],
   "reasons": {
     "permissions": {
       "commercial-use": [
