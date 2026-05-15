@@ -25,6 +25,7 @@
   },
   "categorized": false,
   "permissions": [
+    "commercial-use",
     "distribution",
     "private-use"
   ],
@@ -39,19 +40,23 @@
     "warranty"
   ],
   "tags": [
+    "copyleft:none",
     "domain:content",
     "family:CC",
     "license:creative-commons",
-    "notes:attribution-required",
-    "notes:no-derivatives"
+    "notes:attribution-required"
   ],
   "reasons": {
     "permissions": {
+      "commercial-use": [
+        "[verbatim] 3 grants a \"worldwide, royalty-free, non-exclusive, perpetual\" license to exercise rights in the Work",
+        "[inferred] No NonCommercial restriction appears; in this CC license, absence of NC means commercial use is permitted"
+      ],
       "distribution": [
-        "[verbatim] 3.b grants the right \"to distribute copies or phonorecords of... the Work including as incorporated in Collective Works\""
+        "[verbatim] 3.b: \"to distribute copies or phonorecords of... the Work including as incorporated in Collective Works\""
       ],
       "private-use": [
-        "[inferred] No clause restricts private use; 3 grants broad rights to reproduce and exercise rights in the Work"
+        "[inferred] No clause restricts private use; broad rights to reproduce and exercise rights in the Work cover private use"
       ]
     },
     "conditions": {
@@ -67,7 +72,7 @@
     },
     "limitations": {
       "trademark-use": [
-        "[verbatim] \"neither party will use the trademark 'Creative Commons' or any related trademark or logo... without prior written consent\""
+        "[verbatim] \"neither party will use the trademark \\\"Creative Commons\\\" or any related trademark or logo... without prior written consent\""
       ],
       "liability": [
         "[verbatim] 6: \"IN NO EVENT WILL LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY... DAMAGES\""
