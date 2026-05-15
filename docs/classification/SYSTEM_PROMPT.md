@@ -30,7 +30,8 @@ For every selected rule in permissions / conditions / limitations:
 - Each evidence string ≤160 characters **excluding** the prefix.
 - Every string MUST begin with one of:
   - `[verbatim]` — directly quotes or paraphrases a specific clause or section in the license text.
-  - `[inferred]` — the rule is implied (e.g., broad grant with no contrary restriction, absence of prohibition); state the reasoning briefly.
+  - `[inferred]` — the rule is implied (e.g., broad grant with no contrary restriction, absence of a known restriction element); state the reasoning briefly.
+    - For well-known license families, the absence of a restriction element is valid grounds for inference. For example: in Creative Commons licenses, the absence of the NC (NonCommercial) element means `commercial-use` is permitted and must be inferred from the broad grant even when the text has no explicit "commercial use allowed" statement.
 - If a single thought mixes a quote with an inference, split it into two strings: one `[verbatim]` for the quote, one `[inferred]` for the conclusion drawn from it.
 - Multiple evidence strings allowed if distinct clauses support a rule.
 - Do NOT provide reasons for unselected rules.
@@ -142,6 +143,37 @@ Input: Open Database License. Grants extraction, re-utilisation, distribution, d
       "trademark-use": ["[verbatim] 2.3(c): \'This License does not cover any trademarks associated with the Database.\'"],
       "license-incompatibility": ["[verbatim] 4.4(d): \'You must not add Contents to Derivative Databases... that are incompatible with the rights granted under this License.\'"],
       "database-rights-disclaimed": ["[verbatim] 2.2(b): \'Database Rights only extend to the Extraction and Re-utilisation of the whole or a Substantial part of the Contents.\'"]
+    }
+  }
+}
+```
+
+### Example 4 — CC BY-ND (Creative Commons Attribution-NoDerivs)
+Input: Creative Commons Attribution-NoDerivs 2.0. Grants worldwide, royalty-free license to reproduce and distribute the Work. Prohibits creation of Derivative Works. No NonCommercial restriction. Requires attribution and copyright notice. Disclaims warranties and limits liability.
+```json
+{
+  "permissions": ["commercial-use", "distribution", "private-use"],
+  "conditions": ["include-copyright", "attribution", "license-linking"],
+  "limitations": ["trademark-use", "liability", "warranty"],
+  "tags": ["domain:content", "family:CC", "license:creative-commons", "notes:attribution-required", "notes:no-derivatives"],
+  "reasons": {
+    "permissions": {
+      "commercial-use": [
+        "[verbatim] Sec. 3 grants a \"worldwide, royalty-free... license to exercise the rights in the Work\"",
+        "[inferred] No NC (NonCommercial) element present; in CC licenses, absence of NC means commercial use is permitted"
+      ],
+      "distribution": ["[verbatim] Sec. 3.b grants the right \"to distribute copies or phonorecords of... the Work\""],
+      "private-use": ["[inferred] No clause restricts private use; broad royalty-free grant covers all use types without exception"]
+    },
+    "conditions": {
+      "include-copyright": ["[verbatim] Sec. 4.b: \"You must keep intact all copyright notices for the Work\""],
+      "attribution": ["[verbatim] Sec. 4.b: \"give the Original Author credit reasonable to the medium or means You are utilizing\""],
+      "license-linking": ["[verbatim] Sec. 4.a: \"You must include a copy of, or the Uniform Resource Identifier for, this License with every copy\""]
+    },
+    "limitations": {
+      "trademark-use": ["[verbatim] License states neither party may use Creative Commons trademarks without prior written consent"],
+      "liability": ["[verbatim] Sec. 6: \"IN NO EVENT WILL LICENSOR BE LIABLE TO YOU ON ANY LEGAL THEORY FOR ANY... DAMAGES\""],
+      "warranty": ["[verbatim] Sec. 5: \"LICENSOR OFFERS THE WORK AS-IS AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND\""]
     }
   }
 }
