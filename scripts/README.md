@@ -137,7 +137,7 @@ python licenses_tags.py
 
 ### `classify_license.sh`
 
-Classifies a license using an LLM (default: `gpt-4.1`) and writes standardised
+Classifies a license using an LLM (default: `gpt-5.4`) and writes standardised
 `permissions`, `conditions`, `limitations`, `tags`, and `reasons` fields into the
 license JSON file.
 
@@ -159,7 +159,7 @@ LLM. The number of injected examples is controlled by `--max-examples`.
 | `--output [PATH]` | Write results to PATH; omit PATH to update the input file in-place; omit flag entirely to print to stdout |
 | `--dry-run` | Print classification JSON to stdout without writing any files |
 | `--spdx-id ID` | Override the SPDX ID (useful for plain-text inputs) |
-| `--model MODEL` | LLM model name (default: `gpt-4.1`) |
+| `--model MODEL` | LLM model name (default: `gpt-5.4`) |
 | `--max-examples N` | Maximum few-shot examples to inject from already-classified licenses (default: `5`; set to `0` to disable) |
 | `--skip-tags` | Skip heuristic tag inference; only LLM-assigned tags are included |
 | `--disable-llm` | Disable LLM calls and return an empty classification (useful for testing) |

@@ -94,7 +94,7 @@ set -euo pipefail
 #   ./classify_license.sh ./data/licenses/MIT.json --dry-run
 #
 #   # Use a custom model and credentials file
-#   ./classify_license.sh ./data/licenses/MIT.json --model gpt-4o --credentials-file ~/creds
+#   ./classify_license.sh ./data/licenses/MIT.json --model gpt-5.4 --credentials-file ~/creds
 #
 # Environment Variables:
 #   OPENAI_API_KEY    - API key for OpenAI LLM calls.
