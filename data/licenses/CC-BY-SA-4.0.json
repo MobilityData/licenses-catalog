@@ -35,7 +35,6 @@
   "conditions": [
     "include-copyright",
     "document-changes",
-    "same-license",
     "attribution",
     "non-endorsement",
     "license-linking",
@@ -86,10 +85,6 @@
       ],
       "document-changes": [
         "[verbatim] Section 3(a)(1)(B): You must \"indicate if You modified\" and retain prior modification indications"
-      ],
-      "same-license": [
-        "[verbatim] Section 3(b)(1): Adapter's License must be a CC license with the same License Elements, this version or later",
-        "[verbatim] Section 3(b)(1): or it must be \"a BY-SA Compatible License\""
       ],
       "attribution": [
         "[verbatim] Section 3(a)(1)(A)(i): retain identification of the creator(s) and others designated to receive attribution"
