@@ -1,0 +1,92 @@
+{
+  "spdx": {
+    "isDeprecatedLicenseId": false,
+    "isFsfLibre": true,
+    "name": "Creative Commons Attribution 4.0 International",
+    "licenseId": "CC-BY-4.0",
+    "isOsiApproved": false
+  },
+  "permissions": [
+    "commercial-use",
+    "modifications",
+    "distribution",
+    "private-use",
+    "data-use",
+    "create-adaptations"
+  ],
+  "conditions": [
+    "include-copyright",
+    "document-changes",
+    "attribution",
+    "non-endorsement",
+    "license-linking"
+  ],
+  "limitations": [
+    "trademark-use",
+    "patent-use",
+    "liability",
+    "warranty"
+  ],
+  "tags": [
+    "copyleft:none",
+    "domain:content",
+    "domain:data",
+    "family:CC",
+    "license:creative-commons",
+    "notes:attribution-required",
+    "spdx:fsf-free"
+  ],
+  "reasons": {
+    "permissions": {
+      "commercial-use": [
+        "[inferred] Section 2(a)(1) grants broad rights to reproduce, Share, and produce Adapted Material with no field-of-use restriction"
+      ],
+      "modifications": [
+        "[verbatim] Section 2(a)(1)(B): \"produce, reproduce, and Share Adapted Material\""
+      ],
+      "distribution": [
+        "[verbatim] Section 2(a)(1)(A): \"reproduce and Share the Licensed Material, in whole or in part\""
+      ],
+      "private-use": [
+        "[inferred] Broad license to exercise Licensed Rights contains no restriction excluding private use"
+      ],
+      "data-use": [
+        "[verbatim] Section 4(a): \"grants You the right to extract, reuse, reproduce, and Share... contents of the database\""
+      ],
+      "create-adaptations": [
+        "[verbatim] Section 2(a)(1)(B): \"produce, reproduce, and Share Adapted Material\""
+      ]
+    },
+    "conditions": {
+      "include-copyright": [
+        "[verbatim] Section 3(a)(1)(A)(ii): retain \"a copyright notice\""
+      ],
+      "document-changes": [
+        "[verbatim] Section 3(a)(1)(B): \"indicate if You modified the Licensed Material and retain an indication of any previous modifications\""
+      ],
+      "attribution": [
+        "[verbatim] Section 3(a)(1)(A)(i): retain \"identification of the creator(s)... and any others designated to receive attribution\""
+      ],
+      "non-endorsement": [
+        "[verbatim] Section 2(a)(6): no permission to imply You are \"sponsored, endorsed, or granted official status\""
+      ],
+      "license-linking": [
+        "[verbatim] Section 3(a)(1)(C): include \"the text of, or the URI or hyperlink to, this Public License\""
+      ]
+    },
+    "limitations": {
+      "trademark-use": [
+        "[verbatim] Section 2(b)(2): \"Patent and trademark rights are not licensed under this Public License.\""
+      ],
+      "patent-use": [
+        "[verbatim] Section 2(b)(2): \"Patent and trademark rights are not licensed under this Public License.\""
+      ],
+      "liability": [
+        "[verbatim] Section 5(b): \"in no event will the Licensor be liable to You... for any... damages\""
+      ],
+      "warranty": [
+        "[verbatim] Section 5(a): Licensor offers the material \"as-is and as-available\" and \"makes no... warranties\""
+      ]
+    }
+  }
+}

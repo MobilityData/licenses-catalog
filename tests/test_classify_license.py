@@ -12,9 +12,13 @@ import pytest
 
 from licensing.classify.classify_license import (
     _extract_json_obj,
+    _select_diverse_examples,
+    format_few_shot_block,
+    load_classified_examples,
     load_non_spdx_from_file,
     load_rules,
     load_spdx_license,
+    load_system_prompt,
     load_tags,
     normalize_classification,
 )
@@ -402,3 +406,243 @@ class TestMain:
         assert data["permissions"] == []
         assert data["conditions"] == []
         assert data["limitations"] == []
+
+
+# ---------------------------------------------------------------------------
+# load_classified_examples
+# ---------------------------------------------------------------------------
+
+def _make_license_file(tmp_path, name, permissions, conditions, limitations, reasons=None):
+    """Helper to write a minimal license JSON with optional reasons."""
+    data = {
+        "spdx": {"licenseId": name, "licenseText": f"License text for {name}"},
+        "permissions": permissions,
+        "conditions": conditions,
+        "limitations": limitations,
+        "reasons": reasons or {},
+    }
+    path = tmp_path / f"{name}.json"
+    path.write_text(json.dumps(data), encoding="utf-8")
+    return path
+
+
+SAMPLE_REASONS = {
+    "permissions": {"commercial-use": ["[verbatim] §1: use for any purpose"]},
+    "conditions": {"include-copyright": ["[verbatim] §2: retain copyright notice"]},
+    "limitations": {"warranty": ["[verbatim] §3: provided as-is"]},
+}
+
+
+class TestLoadClassifiedExamples:
+    def test_returns_examples_with_reasons(self, tmp_path):
+        _make_license_file(tmp_path, "MIT", ["commercial-use"], ["include-copyright"], ["warranty"], SAMPLE_REASONS)
+        results = load_classified_examples(licenses_dir=tmp_path)
+        assert len(results) == 1
+        assert results[0]["license_id"] == "MIT"
+
+    def test_skips_files_without_reasons(self, tmp_path):
+        _make_license_file(tmp_path, "NO-REASONS", ["commercial-use"], [], [], reasons={})
+        results = load_classified_examples(licenses_dir=tmp_path)
+        assert results == []
+
+    def test_skips_files_with_empty_reasons_dict(self, tmp_path):
+        _make_license_file(tmp_path, "EMPTY", [], [], [], reasons={"permissions": {}, "conditions": {}, "limitations": {}})
+        results = load_classified_examples(licenses_dir=tmp_path)
+        assert results == []
+
+    def test_excludes_current_license(self, tmp_path):
+        _make_license_file(tmp_path, "MIT", ["commercial-use"], [], [], SAMPLE_REASONS)
+        _make_license_file(tmp_path, "Apache-2.0", ["commercial-use"], [], [], SAMPLE_REASONS)
+        results = load_classified_examples(exclude_id="MIT", licenses_dir=tmp_path)
+        ids = [r["license_id"] for r in results]
+        assert "MIT" not in ids
+        assert "Apache-2.0" in ids
+
+    def test_respects_max_examples(self, tmp_path):
+        for name in ["AAA", "BBB", "CCC", "DDD"]:
+            _make_license_file(tmp_path, name, ["commercial-use"], [], [], SAMPLE_REASONS)
+        results = load_classified_examples(max_examples=2, licenses_dir=tmp_path)
+        assert len(results) == 2
+
+    def test_max_examples_zero_returns_empty(self, tmp_path):
+        _make_license_file(tmp_path, "MIT", ["commercial-use"], [], [], SAMPLE_REASONS)
+        results = load_classified_examples(max_examples=0, licenses_dir=tmp_path)
+        assert results == []
+
+    def test_empty_dir_returns_empty(self, tmp_path):
+        results = load_classified_examples(licenses_dir=tmp_path)
+        assert results == []
+
+    def test_result_contains_expected_fields(self, tmp_path):
+        _make_license_file(tmp_path, "MIT", ["commercial-use"], ["include-copyright"], ["warranty"], SAMPLE_REASONS)
+        result = load_classified_examples(licenses_dir=tmp_path)[0]
+        assert result["license_id"] == "MIT"
+        assert result["permissions"] == ["commercial-use"]
+        assert result["conditions"] == ["include-copyright"]
+        assert result["limitations"] == ["warranty"]
+        assert "reasons" in result
+
+    def test_skips_malformed_json(self, tmp_path):
+        (tmp_path / "bad.json").write_text("not json", encoding="utf-8")
+        _make_license_file(tmp_path, "MIT", ["commercial-use"], [], [], SAMPLE_REASONS)
+        results = load_classified_examples(licenses_dir=tmp_path)
+        assert len(results) == 1
+
+
+# ---------------------------------------------------------------------------
+# format_few_shot_block
+# ---------------------------------------------------------------------------
+
+class TestFormatFewShotBlock:
+    def test_empty_returns_placeholder(self):
+        result = format_few_shot_block([])
+        assert "No worked examples" in result
+
+    def test_renders_license_id(self):
+        examples = [{"license_id": "MIT", "permissions": ["commercial-use"], "conditions": [], "limitations": [], "reasons": {}}]
+        result = format_few_shot_block(examples)
+        assert "### Example: MIT" in result
+
+    def test_renders_permissions_line(self):
+        examples = [{"license_id": "X", "permissions": ["commercial-use", "modifications"], "conditions": [], "limitations": [], "reasons": {}}]
+        result = format_few_shot_block(examples)
+        assert "commercial-use, modifications" in result
+
+    def test_none_permissions_renders_none(self):
+        examples = [{"license_id": "X", "permissions": [], "conditions": [], "limitations": [], "reasons": {}}]
+        result = format_few_shot_block(examples)
+        assert "Permissions: none" in result
+
+    def test_renders_reason_evidence(self):
+        reasons = {"permissions": {"commercial-use": ["[verbatim] §1: any use"]}, "conditions": {}, "limitations": {}}
+        examples = [{"license_id": "X", "permissions": ["commercial-use"], "conditions": [], "limitations": [], "reasons": reasons}]
+        result = format_few_shot_block(examples)
+        assert "[permissions] commercial-use" in result
+        assert "[verbatim] §1: any use" in result
+
+    def test_evidence_truncated_to_160_chars(self):
+        long_ev = "A" * 200
+        reasons = {"permissions": {"commercial-use": [long_ev]}, "conditions": {}, "limitations": {}}
+        examples = [{"license_id": "X", "permissions": ["commercial-use"], "conditions": [], "limitations": [], "reasons": reasons}]
+        result = format_few_shot_block(examples)
+        assert "A" * 161 not in result
+        assert "A" * 160 in result
+
+    def test_multiple_examples_separated(self):
+        ex = {"license_id": "X", "permissions": [], "conditions": [], "limitations": [], "reasons": {}}
+        result = format_few_shot_block([ex, {**ex, "license_id": "Y"}])
+        assert "### Example: X" in result
+        assert "### Example: Y" in result
+
+
+# ---------------------------------------------------------------------------
+# main() — few-shot integration
+# ---------------------------------------------------------------------------
+
+class TestMainFewShot:
+    def test_max_examples_zero_accepted(self, spdx_json_file):
+        output = run_main([str(spdx_json_file), "--max-examples", "0"])
+        data = json.loads(output)
+        assert "permissions" in data
+
+    def test_max_examples_default_applied(self, spdx_json_file):
+        """main() should not raise when --max-examples uses its default."""
+        output = run_main([str(spdx_json_file)])
+        data = json.loads(output)
+        assert "permissions" in data
+
+
+# ---------------------------------------------------------------------------
+# _select_diverse_examples
+# ---------------------------------------------------------------------------
+
+class TestSelectDiverseExamples:
+    def _make(self, license_id, permissions, conditions=None, limitations=None):
+        return {
+            "license_id": license_id,
+            "permissions": permissions,
+            "conditions": conditions or [],
+            "limitations": limitations or [],
+            "reasons": {},
+        }
+
+    def test_returns_all_when_below_limit(self):
+        exs = [self._make("A", ["p1"]), self._make("B", ["p2"])]
+        assert _select_diverse_examples(exs, 5) == exs
+
+    def test_returns_exact_when_equal(self):
+        exs = [self._make("A", ["p1"]), self._make("B", ["p2"])]
+        assert len(_select_diverse_examples(exs, 2)) == 2
+
+    def test_selects_n_from_larger_pool(self):
+        exs = [self._make(str(i), [f"p{i}"]) for i in range(10)]
+        result = _select_diverse_examples(exs, 3)
+        assert len(result) == 3
+
+    def test_prefers_complementary_profiles(self):
+        # A and C share p1; B adds p2; D adds p3 — best pair is B+D or A+B or A+D
+        a = self._make("A", ["p1"])
+        b = self._make("B", ["p1", "p2"])
+        c = self._make("C", ["p1"])
+        d = self._make("D", ["p3"])
+        result = _select_diverse_examples([a, b, c, d], 2)
+        ids = {r["license_id"] for r in result}
+        # B has most rules; D adds the most new coverage after B
+        assert "B" in ids
+        assert "D" in ids
+
+    def test_no_duplicates_in_result(self):
+        exs = [self._make(str(i), ["p1", "p2"]) for i in range(6)]
+        result = _select_diverse_examples(exs, 3)
+        ids = [r["license_id"] for r in result]
+        assert len(ids) == len(set(ids))
+
+
+# ---------------------------------------------------------------------------
+# Bundled package data defaults
+# ---------------------------------------------------------------------------
+
+class TestBundledDefaults:
+    def test_load_rules_no_path_uses_bundled(self):
+        rules = load_rules()
+        assert "commercial-use" in rules["permissions"]
+        assert "include-copyright" in rules["conditions"]
+        assert "liability" in rules["limitations"]
+
+    def test_load_tags_no_path_uses_bundled(self):
+        tags = load_tags()
+        assert any(t.startswith("license:") for t in tags)
+        assert any(t.startswith("domain:") for t in tags)
+
+    def test_load_system_prompt_no_path_uses_bundled(self):
+        prompt = load_system_prompt()
+        assert "permissions" in prompt
+        # placeholder exists but is only substituted when main() passes the mapping
+        assert "few_shot_examples" in prompt
+
+    def test_load_system_prompt_substitutes_mapping(self):
+        prompt = load_system_prompt(mapping={"few_shot_examples": "INJECTED"})
+        assert "INJECTED" in prompt
+        assert "{few_shot_examples}" not in prompt
+
+    def test_load_classified_examples_no_dir_uses_bundled(self):
+        examples = load_classified_examples()
+        assert len(examples) > 0
+        for ex in examples:
+            assert "license_id" in ex
+            assert "permissions" in ex
+            assert "reasons" in ex
+
+    def test_bundled_examples_are_diverse(self):
+        examples = load_classified_examples(max_examples=5)
+        # Diversity: at least one without commercial-use (NC licenses)
+        has_commercial = [e for e in examples if "commercial-use" in e["permissions"]]
+        missing_commercial = [e for e in examples if "commercial-use" not in e["permissions"]]
+        assert len(has_commercial) > 0
+        assert len(missing_commercial) > 0
+
+    def test_bundled_examples_exclude_current(self):
+        examples = load_classified_examples(exclude_id="CC-BY-NC-4.0")
+        ids = [e["license_id"] for e in examples]
+        assert "CC-BY-NC-4.0" not in ids
+

@@ -22,6 +22,7 @@ Library + CLI module extracted from the original scripts/classify_license.py.
 
 import argparse
 import hashlib
+import importlib.resources
 import json
 import os
 import re
@@ -33,15 +34,22 @@ import requests  # type: ignore
 from licensing.classify.license_tags import TagRegistry, build_tags
 
 
-BASE_DIR = Path(__file__).resolve().parents[3]
-RULES_PATH = (BASE_DIR / "data" / "rules.json").resolve()
-TAGS_PATH = (BASE_DIR / "data" / "tags.json").resolve()
+def _pkg_data(relative: str) -> importlib.resources.abc.Traversable:
+	"""Return a Traversable reference to a file in the bundled package data."""
+	return importlib.resources.files("licensing.classify").joinpath("data").joinpath(relative)
 
 
-def load_rules(path: Path = RULES_PATH) -> dict[str, list]:
-	if not path.exists():
-		raise FileNotFoundError(f"Rules file not found: {path}")
-	data = json.loads(path.read_text(encoding="utf-8"))
+def load_rules(path: Path | None = None) -> dict[str, list]:
+	"""Load permission/condition/limitation rule names.
+
+	Uses the bundled ``data/rules.json`` by default.  Pass *path* to override
+	(e.g. when running from the catalog repository).
+	"""
+	if path is None:
+		text = _pkg_data("rules.json").read_text(encoding="utf-8")
+	else:
+		text = Path(path).read_text(encoding="utf-8")
+	data = json.loads(text)
 
 	def extract(names_list: list) -> list:
 		return [item.get("name") for item in names_list if isinstance(item, dict) and item.get("name")]
@@ -53,10 +61,16 @@ def load_rules(path: Path = RULES_PATH) -> dict[str, list]:
 	}
 
 
-def load_tags(path: Path = TAGS_PATH) -> list:
-	if not path.exists():
-		raise FileNotFoundError(f"Tags file not found: {path}")
-	data = json.loads(path.read_text(encoding="utf-8"))
+def load_tags(path: Path | None = None) -> list:
+	"""Load valid tag names.
+
+	Uses the bundled ``data/tags.json`` by default.  Pass *path* to override.
+	"""
+	if path is None:
+		text = _pkg_data("tags.json").read_text(encoding="utf-8")
+	else:
+		text = Path(path).read_text(encoding="utf-8")
+	data = json.loads(text)
 	flat: list[str] = []
 	for category, entries in data.items():
 		if isinstance(entries, dict):
@@ -69,9 +83,6 @@ def load_tags(path: Path = TAGS_PATH) -> list:
 
 RULE_NAMES = load_rules()
 TAG_NAMES = load_tags()
-
-DEFAULT_SYSTEM_PROMPT_PATH = BASE_DIR / "docs" / "classification" / "SYSTEM_PROMPT.md"
-DEFAULT_USER_PROMPT_PATH = BASE_DIR / "docs" / "classification" / "USER_PROMPT.md"
 
 
 def load_api_key_from_dcredentials() -> str | None:
@@ -190,6 +201,110 @@ def load_non_spdx_from_url(url: str, cache_dir: Path, force_download: bool = Fal
 	return text, metadata
 
 
+DEFAULT_MAX_EXAMPLES = 5
+
+_EMPTY_REASONS: dict[str, Any] = {"permissions": {}, "conditions": {}, "limitations": {}}
+
+
+def _select_diverse_examples(examples: list[dict[str, Any]], n: int) -> list[dict[str, Any]]:
+	"""Select up to *n* examples using a greedy max-coverage strategy.
+
+	Greedily picks the example that adds the most *new* rules (permissions +
+	conditions + limitations) to the already-covered set, ensuring the selected
+	subset spans as many distinct classification outcomes as possible.
+	"""
+	if len(examples) <= n:
+		return examples
+
+	def profile(ex: dict) -> frozenset:
+		return (
+			frozenset(ex.get("permissions") or [])
+			| frozenset(ex.get("conditions") or [])
+			| frozenset(ex.get("limitations") or [])
+		)
+
+	selected: list[dict[str, Any]] = []
+	remaining = list(examples)
+	covered: frozenset = frozenset()
+
+	while len(selected) < n and remaining:
+		best = max(remaining, key=lambda ex: len(profile(ex) - covered))
+		selected.append(best)
+		covered = covered | profile(best)
+		remaining.remove(best)
+
+	return selected
+
+
+def load_classified_examples(
+	exclude_id: str | None = None,
+	max_examples: int = DEFAULT_MAX_EXAMPLES,
+	licenses_dir: Path | None = None,
+) -> list[dict[str, Any]]:
+	"""Return already-classified licenses (with reasons) for use as few-shot examples.
+
+	When *licenses_dir* is ``None`` (the default), loads the slim examples
+	bundled with the package (``src/licensing/classify/data/examples/``).
+	Pass a directory path to override — useful when running from the catalog
+	repository to use freshly-classified licenses instead.
+
+	Up to *max_examples* entries are returned, selected using a greedy
+	max-coverage strategy that maximises diversity across permission profiles.
+	"""
+	if max_examples is not None and max_examples <= 0:
+		return []
+
+	if licenses_dir is None:
+		pkg_examples = _pkg_data("examples")
+		candidates = sorted(pkg_examples.iterdir(), key=lambda t: t.name)
+		read_item = lambda item: json.loads(item.read_text(encoding="utf-8"))
+	else:
+		candidates = sorted(Path(licenses_dir).glob("*.json"))
+		read_item = lambda item: json.loads(item.read_text(encoding="utf-8"))
+
+	all_examples: list[dict[str, Any]] = []
+	for item in candidates:
+		try:
+			data = read_item(item)
+		except Exception:
+			continue
+		reasons = data.get("reasons", {})
+		if not reasons or reasons == _EMPTY_REASONS:
+			continue
+		license_id = data.get("spdx", {}).get("licenseId") or getattr(item, "stem", None) or str(item).rsplit("/", 1)[-1].replace(".json", "")
+		if exclude_id and license_id == exclude_id:
+			continue
+		all_examples.append({
+			"license_id": license_id,
+			"permissions": data.get("permissions") or [],
+			"conditions": data.get("conditions") or [],
+			"limitations": data.get("limitations") or [],
+			"reasons": reasons,
+		})
+
+	return _select_diverse_examples(all_examples, max_examples) if max_examples is not None else all_examples
+
+
+def format_few_shot_block(examples: list[dict[str, Any]]) -> str:
+	"""Render *examples* as a compact markdown block for prompt injection."""
+	if not examples:
+		return "(No worked examples available yet.)"
+	blocks: list[str] = []
+	for ex in examples:
+		lines: list[str] = [f"### Example: {ex['license_id']}"]
+		for category in ("permissions", "conditions", "limitations"):
+			items: list[str] = ex.get(category) or []
+			lines.append(f"{category.capitalize()}: {', '.join(items) if items else 'none'}")
+		lines.append("Reasons:")
+		reasons: dict[str, Any] = ex.get("reasons") or {}
+		for category in ("permissions", "conditions", "limitations"):
+			for rule, evidence_list in (reasons.get(category) or {}).items():
+				if evidence_list:
+					lines.append(f"  [{category}] {rule}: {evidence_list[0][:160]}")
+		blocks.append("\n".join(lines))
+	return "\n\n".join(blocks)
+
+
 _PLACEHOLDER_PATTERN = re.compile(r"\{([A-Za-z0-9_]+)}")
 
 
@@ -212,19 +327,26 @@ def _allowed_mapping() -> dict[str, Any]:
 	}
 
 
-def load_system_prompt(path: str | Path = DEFAULT_SYSTEM_PROMPT_PATH, mapping: dict[str, Any] | None = None) -> str:
-	p = Path(path)
-	if not p.is_absolute():
-		p = (BASE_DIR / p).resolve()
-	if not p.exists():
-		raise FileNotFoundError(f"System prompt file not found: {p}")
-	text = p.read_text(encoding="utf-8")
+def load_system_prompt(path: str | Path | None = None, mapping: dict[str, Any] | None = None) -> str:
+	"""Load and render the system prompt.
+
+	Uses the bundled ``data/SYSTEM_PROMPT.md`` when *path* is ``None``.
+	"""
+	if path is None:
+		text = _pkg_data("SYSTEM_PROMPT.md").read_text(encoding="utf-8")
+	else:
+		p = Path(path)
+		if not p.is_absolute():
+			p = (Path.cwd() / p).resolve()
+		if not p.exists():
+			raise FileNotFoundError(f"System prompt file not found: {p}")
+		text = p.read_text(encoding="utf-8")
 	merged_mapping = {**_allowed_mapping(), **(mapping or {})}
 	return _sub_placeholders(text, merged_mapping)
 
 
 def build_user_prompt(
-	template_path: Path,
+	template_path: Path | None,
 	license_id: str,
 	spdx_id: str | None,
 	source: str,
@@ -232,7 +354,14 @@ def build_user_prompt(
 	existing_classification: dict[str, Any] | None,
 	license_text: str,
 ) -> str:
-	template = template_path.read_text(encoding="utf-8")
+	"""Build the user prompt from a template.
+
+	Uses the bundled ``data/USER_PROMPT.md`` when *template_path* is ``None``.
+	"""
+	if template_path is None:
+		template = _pkg_data("USER_PROMPT.md").read_text(encoding="utf-8")
+	else:
+		template = Path(template_path).read_text(encoding="utf-8")
 	mapping: dict[str, Any] = {
 		"LICENSE_ID": license_id,
 		"SPDX_ID_OR_EMPTY": spdx_id or "",
@@ -394,8 +523,10 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 	parser.add_argument("--credentials-file", help="Path to a dcredentials file with OPENAI_API_KEY.")
 	parser.add_argument("--skip-tags", action="store_true", help="Skip heuristic tag inference; only LLM-assigned tags are included.")
 	parser.add_argument("--disable-llm", action="store_true", help="Disable the LLM and return empty classification.")
-	parser.add_argument("--system-prompt", default=str(DEFAULT_SYSTEM_PROMPT_PATH), help="Path to system prompt file.")
-	parser.add_argument("--user-prompt", default=str(DEFAULT_USER_PROMPT_PATH), help="Path to user prompt template.")
+	parser.add_argument("--system-prompt", default=None,
+		help="Path to system prompt file (default: bundled package data).")
+	parser.add_argument("--user-prompt", default=None,
+		help="Path to user prompt template (default: bundled package data).")
 	parser.add_argument("--model", default="gpt-5.4", help="LLM model name to use (default: gpt-5.4).")
 	parser.add_argument(
 		"--output",
@@ -409,6 +540,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 			"If not provided at all, prints to stdout."
 		),
 	)
+	parser.add_argument("--max-examples", type=int, default=DEFAULT_MAX_EXAMPLES,
+		help=f"Maximum number of few-shot examples to inject from already-classified licenses (default: {DEFAULT_MAX_EXAMPLES}; set to 0 to disable).")
 	return parser.parse_args(argv)
 
 
@@ -436,9 +569,13 @@ def main(argv: list[str] | None = None) -> None:
 		existing_classification = None
 		raw_json = None
 		source = "file-text"
-	system_prompt = load_system_prompt(args.system_prompt)
+	system_prompt = load_system_prompt(args.system_prompt, mapping={
+		"few_shot_examples": format_few_shot_block(
+			load_classified_examples(exclude_id=spdx_id, max_examples=args.max_examples)
+		),
+	})
 	user_prompt = build_user_prompt(
-		Path(args.user_prompt),
+		Path(args.user_prompt) if args.user_prompt else None,
 		license_id=license_id,
 		spdx_id=spdx_id,
 		source=source,

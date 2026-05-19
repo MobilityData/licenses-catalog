@@ -1,0 +1,93 @@
+{
+  "spdx": {
+    "isDeprecatedLicenseId": false,
+    "name": "Creative Commons Attribution Non Commercial Share Alike 4.0 International",
+    "licenseId": "CC-BY-NC-SA-4.0",
+    "isOsiApproved": false
+  },
+  "permissions": [
+    "modifications",
+    "distribution",
+    "private-use",
+    "data-use",
+    "create-adaptations"
+  ],
+  "conditions": [
+    "include-copyright",
+    "attribution",
+    "mark-changes",
+    "share-alike",
+    "non-endorsement",
+    "license-linking"
+  ],
+  "limitations": [
+    "trademark-use",
+    "patent-use",
+    "liability",
+    "warranty"
+  ],
+  "tags": [
+    "copyleft:strong",
+    "domain:content",
+    "domain:data",
+    "domain:mixed",
+    "family:CC",
+    "license:creative-commons",
+    "notes:attribution-required",
+    "notes:share-alike"
+  ],
+  "reasons": {
+    "permissions": {
+      "modifications": [
+        "[verbatim] Section 2(a)(1)(B): \"produce, reproduce, and Share Adapted Material for NonCommercial purposes only.\""
+      ],
+      "distribution": [
+        "[verbatim] Section 2(a)(1)(A): \"reproduce and Share the Licensed Material, in whole or in part\""
+      ],
+      "private-use": [
+        "[inferred] No clause forbids private use; granted rights cover reproduction/use, with restrictions aimed at NonCommercial use and sharing"
+      ],
+      "data-use": [
+        "[verbatim] Section 4(a): right to \"extract, reuse, reproduce, and Share all or a substantial portion of the contents of the database\""
+      ],
+      "create-adaptations": [
+        "[verbatim] Section 2(a)(1)(B): \"produce, reproduce, and Share Adapted Material for NonCommercial purposes only.\""
+      ]
+    },
+    "conditions": {
+      "include-copyright": [
+        "[verbatim] Section 3(a)(1)(A)(ii): You must retain \"a copyright notice\""
+      ],
+      "attribution": [
+        "[verbatim] Section 3(a)(1)(A)(i): retain \"identification of the creator(s)... and any others designated to receive attribution\""
+      ],
+      "mark-changes": [
+        "[verbatim] Section 3(a)(1)(B): \"indicate if You modified the Licensed Material and retain an indication of any previous modifications\""
+      ],
+      "share-alike": [
+        "[verbatim] Section 3(b)(1): Adapter's License \"must be a Creative Commons license with the same License Elements\""
+      ],
+      "non-endorsement": [
+        "[verbatim] Section 2(a)(6): no permission to imply You are \"sponsored, endorsed, or granted official status\" by the Licensor"
+      ],
+      "license-linking": [
+        "[verbatim] Section 3(a)(1)(C): include \"the text of, or the URI or hyperlink to, this Public License\"",
+        "[verbatim] Section 3(b)(2): include \"the text of, or the URI or hyperlink to, the Adapter's License You apply\""
+      ]
+    },
+    "limitations": {
+      "trademark-use": [
+        "[verbatim] Section 2(b)(2): \"Patent and trademark rights are not licensed under this Public License.\""
+      ],
+      "patent-use": [
+        "[verbatim] Section 2(b)(2): \"Patent and trademark rights are not licensed under this Public License.\""
+      ],
+      "liability": [
+        "[verbatim] Section 5(b): \"in no event will the Licensor be liable to You on any legal theory... for any... damages\""
+      ],
+      "warranty": [
+        "[verbatim] Section 5(a): Licensor offers the material \"as-is and as-available\" and \"makes no representations or warranties\""
+      ]
+    }
+  }
+}
