@@ -48,11 +48,11 @@ set -euo pipefail
 #
 #   --system-prompt PATH
 #       Path to the system prompt markdown file.
-#       Default: docs/classification/SYSTEM_PROMPT.md
+#       Default: bundled package data (src/licensing/classify/data/SYSTEM_PROMPT.md)
 #
 #   --user-prompt PATH
 #       Path to the user prompt markdown file.
-#       Default: docs/classification/USER_PROMPT.md
+#       Default: bundled package data (src/licensing/classify/data/USER_PROMPT.md)
 #
 #   --model MODEL_NAME
 #       LLM model name to use.
@@ -62,6 +62,11 @@ set -euo pipefail
 #       Path to a "dcredentials"-style file containing OPENAI_API_KEY.
 #       Overrides DCREDENTIALS_FILE env var and the default ~/.dcredentials
 #       lookup.
+#
+#   --max-examples N
+#       Maximum number of few-shot examples to inject from already-classified
+#       licenses in data/licenses/ (those with non-empty reasons). Defaults to
+#       5. Set to 0 to disable few-shot injection entirely.
 #
 #   --skip-tags
 #       Skip heuristic tag inference. Only tags returned by the LLM are

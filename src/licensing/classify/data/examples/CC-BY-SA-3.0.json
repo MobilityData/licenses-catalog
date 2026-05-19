@@ -1,0 +1,89 @@
+{
+  "spdx": {
+    "isDeprecatedLicenseId": false,
+    "name": "Creative Commons Attribution Share Alike 3.0 Unported",
+    "licenseId": "CC-BY-SA-3.0",
+    "isOsiApproved": false
+  },
+  "permissions": [
+    "commercial-use",
+    "modifications",
+    "distribution",
+    "private-use",
+    "create-adaptations"
+  ],
+  "conditions": [
+    "include-copyright",
+    "attribution",
+    "mark-changes",
+    "share-alike",
+    "non-endorsement",
+    "license-linking"
+  ],
+  "limitations": [
+    "trademark-use",
+    "liability",
+    "warranty"
+  ],
+  "tags": [
+    "domain:content",
+    "family:CC",
+    "license:creative-commons",
+    "notes:attribution-required",
+    "notes:share-alike"
+  ],
+  "reasons": {
+    "permissions": {
+      "commercial-use": [
+        "[inferred] No NC element or field-of-use restriction appears; \"Distribute\" includes transfer \"through sale or other transfer of ownership\""
+      ],
+      "modifications": [
+        "[verbatim] Section 3(b): \"to create and Reproduce Adaptations\"",
+        "[verbatim] \"The above rights include the right to make such modifications as are technically necessary\""
+      ],
+      "distribution": [
+        "[verbatim] Section 3(c): \"to Distribute and Publicly Perform the Work including as incorporated in Collections\"",
+        "[verbatim] Section 3(d): \"to Distribute and Publicly Perform Adaptations\""
+      ],
+      "private-use": [
+        "[inferred] Broad reproduction and adaptation rights are granted, and no clause restricts private use"
+      ],
+      "create-adaptations": [
+        "[verbatim] Section 3(b): \"to create and Reproduce Adaptations\""
+      ]
+    },
+    "conditions": {
+      "include-copyright": [
+        "[verbatim] Section 4(c): \"keep intact all copyright notices for the Work\""
+      ],
+      "attribution": [
+        "[verbatim] Section 4(c): provide the Original Author name, title, and URI if supplied",
+        "[verbatim] Section 4(c): include attribution parties designated by Licensor, if any"
+      ],
+      "mark-changes": [
+        "[verbatim] Section 3(b): Adaptations must \"clearly label, demarcate or otherwise identify that changes were made\""
+      ],
+      "share-alike": [
+        "[verbatim] Section 4(b): You may distribute an Adaptation \"only under\" this License, later same-elements CC, or compatible license"
+      ],
+      "non-endorsement": [
+        "[verbatim] Section 4(c): You may not \"assert or imply any connection with, sponsorship or endorsement\" without permission"
+      ],
+      "license-linking": [
+        "[verbatim] Section 4(a): include \"a copy of, or the Uniform Resource Identifier (URI) for, this License\"",
+        "[verbatim] Section 4(b)(I): include \"a copy of, or the URI for, the Applicable License\" with each Adaptation"
+      ]
+    },
+    "limitations": {
+      "trademark-use": [
+        "[verbatim] CC Notice: no use of the trademark \"Creative Commons\" or related marks without prior written consent"
+      ],
+      "liability": [
+        "[verbatim] Section 6: \"IN NO EVENT WILL LICENSOR BE LIABLE TO YOU... FOR ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL\" damages"
+      ],
+      "warranty": [
+        "[verbatim] Section 5: \"LICENSOR OFFERS THE WORK AS-IS AND MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND\""
+      ]
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "spdx": {
+    "isDeprecatedLicenseId": false,
+    "name": "Community Data License Agreement Permissive 2.0",
+    "licenseId": "CDLA-Permissive-2.0",
+    "isOsiApproved": false
+  },
+  "permissions": [
+    "commercial-use",
+    "modifications",
+    "distribution",
+    "private-use",
+    "data-use",
+    "create-adaptations"
+  ],
+  "conditions": [
+    "license-linking"
+  ],
+  "limitations": [
+    "liability",
+    "warranty"
+  ],
+  "tags": [
+    "copyleft:none",
+    "domain:data",
+    "domain:software",
+    "license:open-source",
+    "notes:custom-terms"
+  ],
+  "reasons": {
+    "permissions": {
+      "commercial-use": [
+        "[inferred] 1.1 grants rights to use, modify, and share Data with no noncommercial or field-of-use restriction"
+      ],
+      "modifications": [
+        "[verbatim] 1.1: \"A Data Recipient may use, modify, and share the Data made available\""
+      ],
+      "distribution": [
+        "[verbatim] 2.1: \"A Data Recipient may share Data, with or without modifications\""
+      ],
+      "private-use": [
+        "[inferred] 1.1 grants general rights to use, modify, and share Data, with no restriction excluding private use"
+      ],
+      "data-use": [
+        "[verbatim] 1.1: \"A Data Recipient may use... the Data made available by Data Provider(s)\""
+      ],
+      "create-adaptations": [
+        "[verbatim] 2.1: \"A Data Recipient may share Data, with or without modifications\""
+      ]
+    },
+    "conditions": {
+      "license-linking": [
+        "[verbatim] 2.1: share Data only if the recipient \"makes available the text of this agreement with the shared Data\""
+      ]
+    },
+    "limitations": {
+      "liability": [
+        "[verbatim] 4.1: \"NO DATA PROVIDER SHALL HAVE ANY LIABILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\""
+      ],
+      "warranty": [
+        "[verbatim] 4.1: \"THE DATA IS PROVIDED ON AN \\\"AS IS\\\" BASIS, WITHOUT REPRESENTATIONS, WARRANTIES OR CONDITIONS OF ANY KIND\""
+      ]
+    }
+  }
+}

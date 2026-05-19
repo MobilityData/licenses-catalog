@@ -45,3 +45,10 @@ Repository = "https://github.com/MobilityData/licenses-catalog"
 [tool.setuptools]
 package-dir = {"" = "src"}
 packages = ["licensing", "licensing.classify"]
+
+[tool.setuptools.package-data]
+"licensing.classify" = [
+  "data/*.json",
+  "data/*.md",
+  "data/examples/*.json",
+]

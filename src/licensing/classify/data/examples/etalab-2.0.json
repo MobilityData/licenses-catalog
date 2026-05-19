@@ -1,0 +1,78 @@
+{
+  "spdx": {
+    "isDeprecatedLicenseId": false,
+    "name": "Etalab Open License 2.0",
+    "licenseComments": "English translation can be found here: https://www.etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf",
+    "comment": "English translation can be found here: https://www.etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf",
+    "licenseId": "etalab-2.0",
+    "isOsiApproved": false
+  },
+  "permissions": [
+    "commercial-use",
+    "modifications",
+    "distribution",
+    "private-use",
+    "data-use",
+    "create-adaptations"
+  ],
+  "conditions": [
+    "attribution",
+    "non-endorsement"
+  ],
+  "limitations": [
+    "liability",
+    "warranty"
+  ],
+  "tags": [
+    "copyleft:none",
+    "copyleft:permissive",
+    "domain:content",
+    "domain:data",
+    "license:government-open-license",
+    "notes:attribution-required",
+    "notes:government-open-license",
+    "region:FR"
+  ],
+  "reasons": {
+    "permissions": {
+      "commercial-use": [
+        "[verbatim] \"à des fins commerciales ou non\"",
+        "[verbatim] \"de l’exploiter à titre commercial\""
+      ],
+      "modifications": [
+        "[verbatim] \"de l’adapter, la modifier, l’extraire et la transformer\""
+      ],
+      "distribution": [
+        "[verbatim] \"de la communiquer, la diffuser, la redistribuer, la publier et la transmettre\""
+      ],
+      "private-use": [
+        "[inferred] Broad right of libre \"Réutilisation\" for commercial or non-commercial purposes includes private use"
+      ],
+      "data-use": [
+        "[verbatim] \"libre « Réutilisation » de l’« Information »\"",
+        "[verbatim] \"informations publiques\"",
+        "[verbatim] \"droit sui generis des producteurs de bases de données\""
+      ],
+      "create-adaptations": [
+        "[verbatim] \"pour créer des « Informations dérivées », des produits ou des services\""
+      ]
+    },
+    "conditions": {
+      "attribution": [
+        "[verbatim] \"mentionner la paternité de l’« Information » : sa source... et la date de dernière mise à jour\""
+      ],
+      "non-endorsement": [
+        "[verbatim] \"ne doit pas suggérer une quelconque reconnaissance ou caution par le « Concédant »\""
+      ]
+    },
+    "limitations": {
+      "liability": [
+        "[verbatim] \"Il ne peut être tenu pour responsable de toute perte, préjudice ou dommage\""
+      ],
+      "warranty": [
+        "[verbatim] \"sans autre garantie expresse ou tacite\"",
+        "[verbatim] \"L’absence de défauts ou d’erreurs... n’est pas garantie\""
+      ]
+    }
+  }
+}
